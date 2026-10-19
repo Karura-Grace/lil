@@ -1,0 +1,3257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIELENA Fashion | Pure Ethiopian Collections</title>
+  <meta name="description" content="Discover pure Ethiopian leather collections. Minimal. Bold. Enduring. Premium handcrafted bags and accessories from Addis Ababa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#2A2A2A',
+                            green: '#2A5C3B',
+                            red: '#D05A4E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+  
+  <style>
+
+    /* ── Design Tokens ── */
+    :root {
+      --cream:   #faf8f3;
+      --white:   #ffffff;
+      --ink:     #1a1410;
+      --muted:   #6b5e52;
+      --line:    rgba(26,20,16,.1);
+      --br-900:  #1a0f0a;
+      --br-800:  #2b1811;
+      --br-700:  #3a2218;
+      --br-600:  #5a3524;
+      --br-500:  #7a4a31;
+      --gold:    #c7a36b;
+      --gold-lt: #e8d5aa;
+      --orange:  #c4622d;
+      --green:   #2d5a3d;
+
+      --serif:   "Playfair Display", "Cormorant Garamond", Georgia, serif;
+      --script:  "Cormorant Garamond", Georgia, serif;
+      --sans:    "DM Sans", system-ui, sans-serif;
+
+      --shadow-sm: 0 4px 24px rgba(26,20,16,.08);
+      --shadow-md: 0 12px 48px rgba(26,20,16,.13);
+      --shadow-lg: 0 24px 80px rgba(26,20,16,.18);
+      --r: 18px;
+    }
+    
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--cream);
+      overflow-x: hidden;
+      padding-top: 72px;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button, input, select { font: inherit; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    @media (max-width: 640px) { .wrap { padding: 0 20px; } }
+
+    /* ── Navbar ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 72px;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--line);
+      z-index: 1000;
+      transition: box-shadow .3s ease;
+    }
+    .nav.scrolled { box-shadow: 0 8px 32px rgba(26,20,16,.10); }
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    /* Brand */
+    .brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--ink);
+    }
+    .brand-sub {
+      font-size: 9px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .brand-star {
+      color: var(--gold);
+      font-size: 13px;
+      margin-left: 3px;
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-links a {
+      position: relative;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      color: rgba(26,20,16,.72);
+      padding: 4px 0;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -2px;
+      height: 1.5px;
+      background: var(--ink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .24s ease;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--ink); font-weight: 600; }
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    /* Nav actions */
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .icon-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(26,20,16,.14);
+      background: transparent;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      position: relative;
+      transition: border-color .2s ease, background .2s ease;
+    }
+    .icon-btn:hover { border-color: rgba(26,20,16,.3); background: rgba(26,20,16,.03); }
+    .icon-btn svg { width: 17px; height: 17px; stroke: var(--ink); fill: none; stroke-width: 1.6; }
+    .badge {
+      position: absolute;
+      top: -5px; right: -5px;
+      min-width: 17px; height: 17px;
+      border-radius: 50%;
+      background: var(--br-800);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      display: none;
+      place-items: center;
+      border: 2px solid #fff;
+    }
+
+    /* Mobile hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(26,20,16,.14);
+      background: transparent;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+    .hamburger span {
+      display: block;
+      width: 16px; height: 1.5px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: all .22s ease;
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* Mobile panel */
+    .mobile-panel {
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(255,255,255,.98);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 20px 40px rgba(26,20,16,.10);
+      z-index: 999;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .22s ease, opacity .22s ease;
+    }
+    .mobile-panel.open { transform: none; opacity: 1; pointer-events: auto; }
+    .mobile-panel a {
+      display: block;
+      padding: 15px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .04em;
+      color: rgba(26,20,16,.75);
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-panel a:hover { color: var(--ink); background: rgba(26,20,16,.02); }
+    .hero-bg {
+    /* Use the same warm cream tones as the hero image to blend seamlessly */
+    background-image: url('images/hero.jpg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: 100% center, center;
+    background-size:60% auto, cover;
+    background-blend-mode: multiply, normal;
+    padding-top: 72px; /* Matches the navbar height exactly */
+    position: relative;
+    min-height: clamp(480px, 58vw, 680px);
+    display: flex;
+    align-items: center;
+    }
+
+
+    /* Soft cream wash behind the copy so it stays legible over the bags */
+    .hero-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        /* horizontal cream wash */
+        linear-gradient(90deg,
+          rgba(253,252,248,.88) 0%,
+          rgba(244, 235, 200, 0.74) 28%,
+          rgba(227, 191, 119, 0.36) 48%,
+          rgba(197, 169, 57, 0) 66%),
+        /* brownish gradient at bottom to blend with the leather tones */
+        linear-gradient(180deg,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,0) 35%,
+          rgba(120,65,30,.28) 70%,
+          rgba(90,45,20,.42) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-bg > .max-w-7xl { position: relative; z-index: 2; }
+
+    .mix-multiply {
+            mix-blend-mode: multiply;
+        }
+
+    /* Small decorative Amharic stamp, top-right corner of the hero section */
+    .hero-badge {
+      position: absolute;
+      top: 96px;
+      right: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      color: var(--green);
+      transform: rotate(-4deg);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .hero-badge .badge-amharic {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .hero-badge .badge-line { width: 28px; height: 1.5px; background: var(--green); opacity: .65; }
+    .hero-badge .badge-sub {
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    /* ════════════════════════════════════════
+       LOOKBOOK   3 tall editorial photos
+       ════════════════════════════════════════ */
+    .lookbook {
+      position: relative;
+      background-color: #fffefd;
+      /* very faint repeating motif, like the reference */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%231a1410' stroke-opacity='.028' stroke-width='3'%3E%3Cpath d='M48 14 82 48 48 82 14 48Z'/%3E%3Cpath d='M48 34 62 48 48 62 34 48Z'/%3E%3C/g%3E%3C/svg%3E");
+      padding: clamp(24px, 3.4vw, 66px) 0;
+    }
+    .lookbook-grid {
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 3.5vw, 66px);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(8px, .75vw, 14px);
+    }
+    .lb-card {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      aspect-ratio: 7 / 10;
+      background: #d9c2a0;
+      isolation: isolate;
+    }
+    .lb-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s cubic-bezier(.2,.7,.2,1);
+    }
+    .lb-card:hover img, .lb-card:focus-visible img { transform: scale(1.045); }
+
+    /* Photo on a plain white background: tint the white with a warm studio tone */
+    .lb-card.is-cutout { background: linear-gradient(180deg, #ecdcc0 0%, #d3b184 100%); }
+    .lb-card.is-cutout img { mix-blend-mode: multiply; }
+
+    /* Caption appears on hover / focus (always on for touch screens) */
+    .lb-cap {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 56px 22px 20px;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(26,15,10,0) 0%, rgba(26,15,10,.72) 100%);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+    .lb-card:hover .lb-cap, .lb-card:focus-visible .lb-cap { opacity: 1; transform: none; }
+    .lb-cap strong {
+      font-family: var(--serif);
+      font-size: clamp(17px, 1.5vw, 22px);
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+    .lb-cap span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .lb-card:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+    @media (hover: none) { .lb-cap { opacity: 1; transform: none; } }
+
+    /* Tablet / phone: swipeable row so photos stay big */
+    @media (max-width: 760px) {
+      .lookbook-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 10px;
+      }
+      .lookbook-grid::-webkit-scrollbar { display: none; }
+      .lb-card { flex: 0 0 78%; scroll-snap-align: center; }
+    }
+
+    /* ════════════════════════════════════════
+       SPOTLIGHT   big photo left, 2×2 products right
+       ════════════════════════════════════════ */
+    .spotlight { background: #fffefd; padding: 0 0 clamp(24px, 3.4vw, 66px); }
+    .spotlight-inner {
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 3.5vw, 66px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+      gap: clamp(14px, 2.2vw, 40px);
+      align-items: stretch;
+    }
+
+    /* Left: photo with tagline + button */
+    .fx-hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      aspect-ratio: 5 / 6;
+      background: #cfc4b6;
+      isolation: isolate;
+    }
+    .fx-hero > img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 70% 20%;
+      /* slightly muted, less "digital" tone */
+      filter: saturate(.88) contrast(1.05) brightness(.97) sepia(.04);
+    }
+    /* Film grain + soft vignette so the skin and fabric read as photographed, not rendered */
+    .fx-hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1.2 -.1'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity: .55;
+    }
+    .fx-hero::after {
+      content: "";
+      position: absolute; inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 60% 35%, rgba(0,0,0,0) 45%, rgba(40,28,20,.22) 100%),
+        linear-gradient(180deg, rgba(26,15,10,0) 45%, rgba(26,15,10,.58) 100%);
+    }
+    .fx-hero-copy {
+      position: absolute;
+      left: 0; right: 0; bottom: clamp(28px, 5vw, 72px);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .fx-hero-copy h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.3vw, 56px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: #fff;
+      text-shadow: 0 2px 22px rgba(0,0,0,.35);
+    }
+    .fx-pill {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #262626;
+      color: #fff;
+      padding: 17px 34px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .fx-pill:hover { background: #000; transform: translateY(-2px); }
+
+    /* Right: 2×2 product cards */
+    .fx-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 1fr;
+      gap: clamp(12px, 1.4vw, 26px) clamp(10px, 1.2vw, 22px);
+    }
+    .fx-card { display: flex; flex-direction: column; min-width: 0; }
+    .fx-media {
+      position: relative;
+      display: block;
+      width: 100%;
+      flex: 1 1 auto;
+      min-height: 230px;
+      border: 0;
+      padding: 0;
+      background: #f3f2ef;
+      overflow: hidden;
+    }
+    .fx-view { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; background: none; cursor: pointer; }
+    .fx-view:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+    .fx-tag, .fx-add { z-index: 2; }
+    .fx-tag { pointer-events: none; }
+    .fx-media img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      padding: 8% 10% 16%;
+      mix-blend-mode: multiply;
+      transition: transform .55s cubic-bezier(.2,.7,.2,1);
+    }
+    /* photos that already fill their own frame: crop to the card instead of floating */
+    .fx-media img.cover { padding: 0; object-fit: cover; mix-blend-mode: normal; }
+    .fx-card:hover .fx-media img { transform: scale(1.05); }
+    /* hover image swap: smooth cross-fade to the alternate photo */
+    .fx-media img.fx-main, .fx-media img.fx-alt {
+      transition: opacity .7s ease, transform .9s cubic-bezier(.2,.7,.2,1);
+    }
+    .fx-media img.fx-alt { opacity: 0; }
+    @media (hover: hover) {
+      .fx-card:hover .fx-media img.fx-main { opacity: 0; }
+      .fx-card:hover .fx-media img.fx-alt { opacity: 1; }
+    }
+    .fx-tag {
+      position: absolute;
+      left: 12px; bottom: 12px;
+      background: #fff;
+      color: #2d5a3d;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 16px;
+      border-radius: 999px;
+    }
+    .fx-add {
+      position: absolute;
+      right: 12px; bottom: 12px;
+      background: #fff;
+      color: #1a1410;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s ease, color .2s ease, transform .2s ease, opacity .25s ease;
+    }
+    .fx-add:hover { background: #1a1410; color: #fff; }
+    .fx-add:active { transform: scale(.97); }
+    .fx-add.added { background: #2d5a3d; color: #fff; }
+    .fx-info { padding: 14px 4px 6px; }
+    .fx-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1c1a18;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+    .fx-price { font-size: 14px; color: #6b5e52; }
+
+    /* On hover-capable screens the Add to cart pill appears on hover/focus */
+    @media (hover: hover) and (min-width: 901px) {
+      .fx-add { opacity: 0; transform: translateY(6px); }
+      .fx-card:hover .fx-add, .fx-card:focus-within .fx-add { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 900px) {
+      .spotlight-inner { grid-template-columns: 1fr; }
+      .fx-hero { min-height: 0; aspect-ratio: 4 / 5; }
+    }
+    @media (max-width: 520px) {
+      .fx-media { min-height: 170px; }
+      .fx-add { padding: 9px 12px; font-size: 10.5px; letter-spacing: .08em; right: 8px; bottom: 8px; }
+      .fx-tag { left: 8px; top: 8px; bottom: auto; padding: 6px 10px; font-size: 11px; }
+      .fx-name { font-size: 13px; }
+      .fx-pill { padding: 14px 24px; font-size: 12px; }
+    }
+
+    /* ════════════════════════════════════════
+       MARQUEE   two rows of huge scrolling text
+       ════════════════════════════════════════ */
+    .marquee {
+      background: #fffefd;
+      overflow: hidden;
+      padding: clamp(28px, 5vw, 80px) 0 clamp(8px, 1.5vw, 24px);
+      user-select: none;
+    }
+    .mq-row { display: flex; overflow: hidden; }
+    .mq-track {
+      display: flex;
+      flex-shrink: 0;
+      width: max-content;
+      will-change: transform;
+    }
+    .mq-track span {
+      font-family: "Montserrat", "DM Sans", system-ui, sans-serif;
+      font-size: clamp(56px, 11.5vw, 200px);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      padding-right: .55em;
+    }
+    .mq-top span    { color: #efefef; }
+    .mq-bottom span { color: #e9d8ad; }
+    .mq-top    .mq-track { animation: mq-left  42s linear infinite; }   /* right → left */
+    .mq-bottom .mq-track { animation: mq-right 48s linear infinite; }   /* left → right */
+    
+    @keyframes mq-left  { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
+    @keyframes mq-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    
+
+    /* ════════════════════════════════════════
+       FEATURED PRODUCTS   exact match
+       ════════════════════════════════════════ */
+
+    /* Section wrapper: white bg, generous padding */
+    .featured-section {
+      background: #fffefd;
+      padding: 36px 0 48px;
+    }
+
+    /* Header row: "Featured Products" label left + "View All →" right */
+    .featured-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+    /* "Featured Products" DM Sans, medium weight, ~18px */
+    .featured-label {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #1c1a18;
+      letter-spacing: .01em;
+    }
+    /* "View All →" DM Sans, same size, normal weight, with underline */
+    .featured-viewall {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: #1c1a18;
+      letter-spacing: .01em;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border-bottom: 1px solid #1c1a18;
+      padding-bottom: 1px;
+      transition: opacity .2s;
+    }
+    .featured-viewall:hover { opacity: .55; }
+
+    /* 4-column grid */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 100px)  { .featured-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .featured-grid { grid-template-columns: 1fr; } }
+
+    /* Individual card:
+       - rounded corners
+       - cream/beige solid background (#f0e8d8 approx)
+       - NO border, NO hard shadow very soft
+       - image CENTERED in the card with padding so bg shows around it
+       - name + price below image, inside a white bottom strip
+    */
+    .fp-card {
+      background: #f0e8d8;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor: pointer;
+    }
+    .fp-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(26,20,16,.12);
+    }
+
+    /* Image area cream bg, image displayed with padding so it feels "floating" */
+    .fp-img-area {
+      position: relative;
+      background: #f0e8d8;
+      padding: 6px 6px 6px;
+      aspect-ratio: 1 / 1.05;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+    .fp-img {
+      width: 100%;
+      height: 100%;
+      background: center / contain no-repeat transparent;
+      transition: transform .4s ease;
+    }
+    .fp-card:hover .fp-img { transform: scale(1.04); }
+
+    /* Heart icon bottom-right of image area, always visible */
+    .fp-heart {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      line-height: 1;
+      transition: transform .2s;
+    }
+    .fp-heart:hover { transform: scale(1.2); }
+    /* Filled red heart for Card 2 (wishlist state), outline for others */
+    .fp-heart-icon {
+      font-size: 18px;
+      color: #cc3333;
+    }
+    .fp-heart-outline {
+      font-size: 18px;
+      color: #999;
+      opacity: .7;
+    }
+
+    /* Text area white strip at card bottom */
+    .fp-body {
+      background: #ffffff;
+      padding: 11px 14px 13px;
+    }
+    .fp-name {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #1c1a18;
+      line-height: 1.3;
+      margin: 0 0 3px;
+    }
+    .fp-price {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1c1a18;
+      margin: 0;
+    }
+
+
+    /* ════════════════════════════════════════
+       FEATURED 3D rotating pop-up products
+       ════════════════════════════════════════ */
+    .featured-section { overflow-x: clip; }
+    .fp3d { position: relative; user-select: none; -webkit-user-select: none; width: 100vw; margin-left: calc(50% - 50vw); }
+    .fp3d-stage {
+      position: relative; height: clamp(440px, 40vw, 540px);
+      perspective: 1400px; perspective-origin: 50% 40%;
+      cursor: grab; touch-action: pan-y; overflow: hidden;
+    }
+    .fp3d-stage.drag { cursor: grabbing; }
+    .fp3d-ring {
+      position: absolute; left: 50%; top: 50%;
+      width: 0; height: 0;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .fp3d-item {
+      position: absolute; left: 0; top: 0;
+      width: var(--w, 280px); margin-left: calc(var(--w, 280px) / -2);
+      height: 380px; margin-top: -200px;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      transform-style: preserve-3d;
+    }
+    .fp3d-pop {
+      position: relative; width: 100%; flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      transform-style: preserve-3d;
+    }
+    .fp3d-glow {
+      position: absolute; left: 50%; bottom: 8%; width: 86%; aspect-ratio: 1;
+      transform: translateX(-50%); border-radius: 50%;
+      background: radial-gradient(circle at 50% 45%, #f0e8d8 0%, #f0e8d8 55%, rgba(240,232,216,0) 72%);
+      z-index: 0;
+    }
+    .fp3d-img {
+      position: relative; z-index: 1;
+      width: 92%; height: 92%; object-fit: contain;
+      pointer-events: none;
+      filter: drop-shadow(0 22px 22px rgba(26,20,16,.28));
+      transform: translateZ(60px) translateY(-8px);
+      transition: transform .5s cubic-bezier(.2,.7,.2,1), filter .5s ease;
+    }
+    .fp3d-item:hover .fp3d-img {
+      transform: translateZ(110px) translateY(-22px) scale(1.08);
+      filter: drop-shadow(0 38px 30px rgba(26,20,16,.32));
+    }
+    .fp3d-item.is-center .fp3d-img { filter: drop-shadow(0 40px 32px rgba(26,20,16,.34)); }
+    .fp3d-item.is-center .fp3d-info { transform: translateZ(40px); }
+    .fp3d-info { text-align: center; padding: 10px 0 0; }
+    .fp3d-info .fp-name { margin: 0 0 3px; }
+    .fp3d-heart {
+      position: absolute; right: 8%; top: 8%;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 0; background: #fff; color: #999; font-size: 18px; line-height: 1;
+      box-shadow: 0 4px 14px rgba(26,20,16,.15); cursor: pointer;
+      transition: transform .2s; transform: translateZ(80px);
+    }
+    .fp3d-heart:hover { transform: translateZ(80px) scale(1.15); }
+    .fp3d-heart.on { color: #cc3333; }
+    .fp3d-ctrl { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 6px; }
+    .fp3d-btn {
+      width: 44px; height: 44px; border-radius: 50%; border: 1px solid #1c1a18;
+      background: transparent; color: #1c1a18; font-size: 18px; cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+    .fp3d-btn:hover { background: #1c1a18; color: #fff; }
+    .fp3d-hint { font: 500 12px/1 "DM Sans", system-ui, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: #8a8178; }
+    @media (max-width: 640px) { .fp3d-item { height: 340px; margin-top: -180px; } }
+
+    /* ── Featured Products ── */
+    .section { padding: 80px 0; }
+    @media (max-width: 640px) { .section { padding: 56px 0; } }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 36px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3.2vw, 38px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .view-all-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: opacity .2s ease;
+    }
+    .view-all-link:hover { opacity: .6; }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1100px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 760px)  { .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+    @media (max-width: 440px)  { .product-grid { grid-template-columns: 1fr; } }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid rgba(26,20,16,.07);
+      box-shadow: var(--shadow-sm);
+      transition: transform .3s ease, box-shadow .3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .pc-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #f2ebe0;
+      aspect-ratio: 3/3.4;
+    }
+    .pc-img {
+      width: 100%; height: 100%;
+      background: center/cover no-repeat #f2ebe0;
+      transition: transform .5s ease;
+    }
+    .product-card:hover .pc-img { transform: scale(1.06); }
+
+    .pc-wish {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      border: none;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity .2s ease, transform .2s ease;
+      box-shadow: 0 2px 8px rgba(26,20,16,.12);
+    }
+    .pc-wish svg { width: 15px; height: 15px; fill: none; stroke: #c0392b; stroke-width: 1.8; }
+    .pc-wish.wished svg { fill: #c0392b; }
+    .product-card:hover .pc-wish { opacity: 1; }
+
+    .pc-body { padding: 14px 16px 18px; }
+    .pc-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .pc-price {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-top: 2px;
+    }
+
+    /* ── Section divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 0;
+    }
+
+    /* ── About section card-collage layout ── */
+    .about-section {
+      padding: 80px 0;
+      background: var(--cream);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* Left side: image collage */
+    .about-collage {
+      position: relative;
+      height: 420px;
+    }
+    @media (max-width: 900px) { .about-collage { height: 340px; } }
+
+    .about-img-main {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 52%;
+      aspect-ratio: 3/4;
+      border-radius: 20px;
+      background: center/cover no-repeat #c4a882;
+      background-image: url('images/6.png');
+      box-shadow: var(--shadow-md);
+    }
+    .about-img-secondary {
+      position: absolute;
+      top: 0; right: 0;
+      width: 56%;
+      aspect-ratio: 4/5;
+      border-radius: 20px;
+      background: center/cover no-repeat #8b6a4e;
+      background-image: url('images/1.png');
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Floating stats card */
+    .about-stats-card {
+      position: absolute;
+      top: 16px;
+      left: 28px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px 18px;
+      box-shadow: 0 8px 32px rgba(26,20,16,.14);
+      z-index: 10;
+      min-width: 180px;
+    }
+    .about-stats-number {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .about-stats-number svg { width: 18px; height: 18px; stroke: #2d9c5a; fill: none; stroke-width: 2; }
+    .about-stats-label { font-size: 11px; color: var(--muted); line-height: 1.4; margin-bottom: 10px; }
+    .about-avatars { display: flex; gap: -4px; }
+    .about-avatar {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      margin-left: -6px;
+      background: center/cover no-repeat;
+      margin-left: 0;
+    }
+    .about-avatar:first-child { margin-left: 0; }
+    .about-avatar-1 { background-color: #c4a882; }
+    .about-avatar-2 { background-color: #8b6a4e; }
+    .about-avatar-3 { background-color: #5a3524; }
+    .about-avatar-4 { background-color: #3a2218; }
+    .about-avatar-5 { background-color: #7a4a31; }
+
+    /* Floating ratings badge */
+    .about-ratings-card {
+      position: absolute;
+      bottom: 18px;
+      left: 48%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 14px;
+      padding: 10px 16px;
+      box-shadow: 0 8px 24px rgba(26,20,16,.13);
+      z-index: 10;
+      white-space: nowrap;
+      text-align: center;
+    }
+    .about-ratings-label { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .about-ratings-emojis { font-size: 17px; letter-spacing: 3px; color: var(--gold); }
+
+    /* Right side: copy */
+    .about-copy .about-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .about-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .about-body {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .about-explore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--br-700);
+      color: #fff;
+      padding: 14px 30px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: background .22s ease, transform .22s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .about-explore-btn:hover { background: var(--br-800); transform: translateY(-2px); }
+
+    /* ── Statement strips (between sections) ── */
+    .statement {
+      padding: clamp(40px, 6vw, 72px) 24px;
+      text-align: center;
+      background: var(--cream);
+    }
+    .statement p {
+      max-width: 880px;
+      margin: 0 auto;
+      font-family: var(--serif);
+      font-weight: 800;
+      font-size: clamp(22px, 3.4vw, 40px);
+      line-height: 1.2;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+    .statement p::after {
+      content: "";
+      display: block;
+      width: 56px; height: 3px;
+      margin: 18px auto 0;
+      background: var(--gold);
+    }
+
+    .statement .statement-sub {
+      margin-top: 22px;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: clamp(15px, 1.8vw, 20px);
+      line-height: 1.5;
+      letter-spacing: .01em;
+      text-transform: none;
+      color: #2b2b2b;
+    }
+    .statement .statement-sub::after { display: none; }
+    .statement-intro .hero-scroll {
+      position: static; transform: none;
+      margin: 26px auto 0;
+      color: var(--green);
+    }
+    @media (max-width: 640px) { .statement-intro .hero-scroll { display: flex; } }
+
+    /* ── Testimonials ── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 880px) { .testi-grid { grid-template-columns: 1fr; } }
+
+    .testi-card {
+      padding: 28px;
+      border-radius: var(--r);
+      background: var(--white);
+      border: 1px solid rgba(26,20,16,.08);
+      box-shadow: var(--shadow-sm);
+    }
+    .testi-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+    .testi-body { font-size: 14.5px; line-height: 1.8; color: var(--muted); margin-bottom: 16px; font-style: italic; }
+    .testi-who { font-weight: 600; font-size: 14px; color: var(--ink); }
+    .testi-where { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* ── Green zone: Contact + Footer share ONE continuous background ── */
+    .green-wrap { background: #fff; }
+    .green-zone {
+      position: relative;
+      overflow: hidden;
+      border-radius: 44px 44px 0 0;
+      color: #fff;
+      background:
+        radial-gradient(60% 38% at 90% 6%, rgba(199,163,107,.22), transparent 70%),
+        radial-gradient(46% 32% at 2% 34%, rgba(255,255,255,.08), transparent 70%),
+        radial-gradient(60% 30% at 50% 100%, rgba(199,163,107,.10), transparent 70%),
+        linear-gradient(180deg, #2d5a3d 0%, #234c31 34%, #183b27 68%, #0f2a1a 100%);
+    }
+    .green-zone::before {
+      content: "";
+      position: absolute; inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.045' stroke-width='2'%3E%3Cpath d='M48 14 82 48 48 82 14 48Z'/%3E%3Cpath d='M48 34 62 48 48 62 34 48Z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .green-zone > * { position: relative; z-index: 1; }
+
+    /* floating orbs that drift slowly */
+    .orb { position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; z-index: 0 !important; }
+    .orb-1 { width: 340px; height: 340px; background: rgba(199,163,107,.20); top: 60px; left: -90px; animation: drift 14s ease-in-out infinite alternate; }
+    .orb-2 { width: 420px; height: 420px; background: rgba(90,170,120,.18); top: 220px; right: -140px; animation: drift 18s ease-in-out infinite alternate-reverse; }
+    @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(40px,-30px) scale(1.12); } }
+
+    /* ── Contact ── */
+    .contact-section { padding: 110px 0 80px; }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr;
+      gap: 72px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .contact-inner { grid-template-columns: 1fr; gap: 48px; } .contact-section { padding: 80px 0 56px; } }
+
+    .contact-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .24em; text-transform: uppercase;
+      color: var(--gold-lt);
+      margin-bottom: 10px;
+    }
+    .contact-eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--gold); }
+    .contact-hello {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(38px, 4.4vw, 56px);
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .contact-title {
+      font-family: var(--serif);
+      font-size: clamp(30px, 3.8vw, 50px);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .contact-title em { font-style: italic; font-weight: 500; color: var(--gold-lt); }
+    .contact-lead {
+      font-size: 15.5px; line-height: 1.85;
+      color: rgba(255,255,255,.7);
+      max-width: 460px;
+      margin-bottom: 34px;
+    }
+
+    .info-list { display: grid; gap: 14px; margin-bottom: 30px; }
+    .info-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+    }
+    .info-row:hover { transform: translateX(6px); background: rgba(255,255,255,.10); border-color: rgba(199,163,107,.45); }
+    .info-ic {
+      flex: 0 0 42px; width: 42px; height: 42px;
+      border-radius: 12px;
+      display: grid; place-items: center;
+      background: rgba(199,163,107,.16);
+      border: 1px solid rgba(199,163,107,.35);
+    }
+    .info-ic svg { width: 18px; height: 18px; stroke: var(--gold-lt); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .info-txt { flex: 1; min-width: 0; }
+    .info-lab { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .info-val { font-size: 14.5px; color: rgba(255,255,255,.9); line-height: 1.4; word-break: break-word; }
+    .info-val small { display: block; font-size: 12px; color: rgba(255,255,255,.55); margin-top: 2px; }
+
+    .copy-btn {
+      flex: 0 0 auto;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: transparent;
+      color: rgba(255,255,255,.85);
+      font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .copy-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--br-900); }
+    .copy-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #5ee08f; margin-right: 8px; position: relative; top: -1px; box-shadow: 0 0 0 0 rgba(94,224,143,.6); animation: pulse 2s infinite; }
+    .live-dot.off { background: #e0a55e; animation: none; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(94,224,143,.55); } 70% { box-shadow: 0 0 0 10px rgba(94,224,143,0); } 100% { box-shadow: 0 0 0 0 rgba(94,224,143,0); } }
+
+    .social { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .social-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-right: 6px; }
+    .social a {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.06);
+      transition: all .25s ease;
+    }
+    .social a:hover { border-color: var(--gold); background: var(--gold); transform: translateY(-4px) rotate(-6deg); }
+    .social a svg { width: 17px; height: 17px; fill: rgba(255,255,255,.85); transition: fill .2s; }
+    .social a:hover svg { fill: var(--br-900); }
+
+    /* ── Form card ── */
+    .cf-card {
+      position: relative;
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 28px;
+      padding: 38px;
+      box-shadow: 0 40px 90px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.4) inset;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    @media (max-width: 520px) { .cf-card { padding: 26px 20px; border-radius: 22px; } }
+    .cf-card::before {
+      content: "";
+      position: absolute; inset: 0; z-index: -1;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(199,163,107,.26), transparent 60%);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .cf-card:hover::before { opacity: 1; }
+    .cf-title { font-family: var(--serif); font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+    .cf-sub { font-size: 13.5px; color: var(--muted); margin-bottom: 20px; }
+
+    .cf-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cf-chip {
+      border-radius: 999px;
+      border: 1.5px solid rgba(26,20,16,.14);
+      background: #fff;
+      padding: 9px 15px;
+      font-size: 12.5px; font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .22s ease;
+    }
+    .cf-chip:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+    .cf-chip.active { background: var(--green); border-color: var(--green); color: #fff; box-shadow: 0 8px 20px rgba(45,90,61,.35); }
+
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 520px) { .cf-row { grid-template-columns: 1fr; } }
+    .cf-field { position: relative; margin-top: 16px; }
+    .cf-field input, .cf-field textarea {
+      width: 100%;
+      border: 1.5px solid rgba(26,20,16,.14);
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 14px 9px;
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .cf-field textarea { min-height: 130px; resize: vertical; padding-bottom: 26px; }
+    .cf-field label {
+      position: absolute; left: 15px; top: 17px;
+      font-size: 14px; color: var(--muted);
+      pointer-events: none;
+      transition: all .18s ease;
+    }
+    .cf-field input:focus + label, .cf-field input:not(:placeholder-shown) + label,
+    .cf-field textarea:focus + label, .cf-field textarea:not(:placeholder-shown) + label {
+      top: 7px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green);
+    }
+    .cf-field input:focus, .cf-field textarea:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(45,90,61,.13); }
+    .cf-field.invalid input, .cf-field.invalid textarea { border-color: #c0392b; box-shadow: 0 0 0 4px rgba(192,57,43,.10); animation: shake .35s; }
+    .cf-field.invalid label { color: #c0392b !important; }
+    @keyframes shake { 20% { transform: translateX(-5px); } 40% { transform: translateX(5px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(3px); } }
+    .cf-count { position: absolute; right: 12px; bottom: 8px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .cf-count.max { color: #c0392b; font-weight: 700; }
+
+    .cf-submit {
+      width: 100%;
+      margin-top: 20px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      background: var(--green);
+      color: #fff;
+      border: 0;
+      border-radius: 14px;
+      padding: 17px 24px;
+      font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      cursor: pointer;
+      position: relative; overflow: hidden;
+      box-shadow: 0 14px 30px rgba(45,90,61,.38);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .cf-submit::after {
+      content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
+      transform: skewX(-20deg);
+      transition: left .6s ease;
+    }
+    .cf-submit:hover { transform: translateY(-2px); background: #1f4a30; box-shadow: 0 18px 38px rgba(45,90,61,.45); }
+    .cf-submit:hover::after { left: 120%; }
+    .cf-submit svg { width: 16px; height: 16px; transition: transform .25s ease; }
+    .cf-submit:hover svg { transform: translateX(5px) rotate(-8deg); }
+    .cf-note { margin-top: 12px; text-align: center; font-size: 12px; color: var(--muted); }
+
+    .cf-done {
+      position: absolute; inset: 0;
+      background: var(--cream);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 32px;
+      opacity: 0; pointer-events: none;
+      transform: scale(.98);
+      transition: opacity .4s ease, transform .4s ease;
+      z-index: 3;
+    }
+    .cf-done.on { opacity: 1; pointer-events: auto; transform: none; }
+    .cf-check { width: 84px; height: 84px; margin-bottom: 18px; }
+    .cf-check circle { fill: none; stroke: var(--green); stroke-width: 3; stroke-dasharray: 176; stroke-dashoffset: 176; }
+    .cf-check path { fill: none; stroke: var(--green); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 48; stroke-dashoffset: 48; }
+    .cf-done.on .cf-check circle { animation: draw .7s .1s ease forwards; }
+    .cf-done.on .cf-check path { animation: draw .5s .6s ease forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .cf-done h3 { font-family: var(--serif); font-size: 26px; margin-bottom: 8px; }
+    .cf-done p { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 300px; margin-bottom: 20px; }
+    .cf-done button { border: 1.5px solid var(--green); color: var(--green); background: transparent; border-radius: 999px; padding: 10px 22px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: all .2s; }
+    .cf-done button:hover { background: var(--green); color: #fff; }
+
+    /* Toast */
+    .toast {
+      position: fixed; left: 50%; bottom: 28px;
+      transform: translate(-50%, 20px);
+      background: #14301f; color: #fff;
+      padding: 12px 20px; border-radius: 999px;
+      font-size: 13px; font-weight: 500;
+      box-shadow: 0 14px 40px rgba(0,0,0,.3);
+      border: 1px solid rgba(199,163,107,.4);
+      opacity: 0; pointer-events: none;
+      transition: all .3s ease;
+      z-index: 1300;
+    }
+    .toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+    /* ── Shop section ── */
+    .shop-section { background: var(--white); }
+    .shop-shell {
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(250,248,243,.8));
+      border: 1px solid rgba(26,20,16,.08);
+      box-shadow: var(--shadow-md);
+    }
+    .shop-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tab {
+      border-radius: 999px;
+      border: 1px solid rgba(26,20,16,.15);
+      background: transparent;
+      padding: 8px 14px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all .2s ease;
+    }
+    .tab:hover { border-color: rgba(26,20,16,.3); color: var(--ink); }
+    .tab.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+
+    /* Product grid (shop) */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 980px) { .shop-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .shop-grid { grid-template-columns: 1fr; } }
+
+    .shop-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(26,20,16,.08);
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .shop-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .sc-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #f2ebe0;
+    }
+    .sc-img {
+      height: 210px;
+      background: center/cover no-repeat #f2ebe0;
+      transition: transform .4s ease;
+    }
+    .shop-card:hover .sc-img { transform: scale(1.05); }
+    .sc-body { padding: 14px; }
+    .sc-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .sc-name { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+    .sc-desc { font-size: 13px; line-height: 1.7; color: var(--muted); margin-bottom: 12px; }
+    .sc-foot { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 4px;
+      padding: 10px 18px;
+      border: 1px solid transparent;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-dark {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(26,20,16,.18);
+    }
+    .btn-dark:hover { background: var(--br-700); }
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(26,20,16,.2);
+      color: var(--ink);
+    }
+    .btn-outline:hover { border-color: rgba(26,20,16,.4); }
+
+    /* ── Footer (green, blends into the contact section above) ── */
+    .site-footer { padding: 24px 0 0; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      padding: 56px 0 44px;
+      border-top: 1px solid transparent;
+      border-image: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent) 1;
+    }
+    @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; } }
+    @media (max-width: 560px) { .footer-top { grid-template-columns: 1fr; gap: 30px; } }
+
+    .footer-brand-name { font-family: var(--serif); font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 12px; letter-spacing: .06em; }
+    .footer-fine { font-size: 13.5px; line-height: 1.85; color: rgba(255,255,255,.58); max-width: 320px; margin-bottom: 22px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: grid; place-items: center;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      transition: all .25s ease;
+    }
+    .footer-social a:hover { border-color: var(--gold); background: var(--gold); transform: translateY(-3px); }
+    .footer-social a svg { width: 15px; height: 15px; fill: rgba(255,255,255,.8); }
+    .footer-social a:hover svg { fill: var(--br-900); }
+
+    .footer-col-title { font-size: 10.5px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a, .footer-links span {
+      font-size: 14px; line-height: 1.4;
+      color: rgba(255,255,255,.62);
+      transition: color .2s ease, transform .2s ease;
+      width: fit-content;
+    }
+    .footer-links a:hover { color: #fff; transform: translateX(5px); }
+    .footer-links a:hover::before { content: "→ "; color: var(--gold); }
+
+    /* giant faded wordmark that melts into the green */
+    .footer-word {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(64px, 17.5vw, 280px);
+      line-height: .82;
+      letter-spacing: .05em;
+      text-align: center;
+      white-space: nowrap;
+      margin: 6px 0 -.07em;
+      background: linear-gradient(180deg, rgba(255,255,255,.17) 0%, rgba(199,163,107,.08) 55%, rgba(255,255,255,0) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .footer-bottom {
+      padding: 22px 0 26px;
+      display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.09);
+      position: relative; z-index: 2;
+    }
+    .footer-copy { font-size: 12.5px; color: rgba(255,255,255,.45); }
+    .footer-copy-links { display: flex; align-items: center; gap: 20px; }
+    .footer-copy-links a { font-size: 12.5px; color: rgba(255,255,255,.45); transition: color .2s; }
+    .footer-copy-links a:hover { color: #fff; }
+    .to-top {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.07);
+      display: grid; place-items: center;
+      cursor: pointer;
+      transition: all .25s ease;
+    }
+    .to-top svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .to-top:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-4px); }
+    .to-top:hover svg { stroke: var(--br-900); }
+
+/* ── Light sage theme: contact + footer blend out of the white page ── */
+    .mq-track { backface-visibility: hidden; }
+    /* keep the marquee running even for reduced-motion users (global rule shortens animations) */
+    .mq-top .mq-track    { animation-duration: 42s !important; animation-iteration-count: infinite !important; }
+    .mq-bottom .mq-track { animation-duration: 48s !important; animation-iteration-count: infinite !important; }
+
+    .green-wrap { background: #fff; }
+    .green-zone {
+      border-radius: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(60% 34% at 90% 10%, rgba(199,163,107,.16), transparent 70%),
+        radial-gradient(50% 34% at 0% 42%, rgba(45,90,61,.09), transparent 70%),
+        linear-gradient(180deg, #ffffff 0%, #f4f7f0 20%, #e8f0e2 52%, #dce8d6 80%, #d0e0cb 100%);
+    }
+    .green-zone::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%232d5a3d' stroke-opacity='.05' stroke-width='2'%3E%3Cpath d='M48 14 82 48 48 82 14 48Z'/%3E%3Cpath d='M48 34 62 48 48 62 34 48Z'/%3E%3C/g%3E%3C/svg%3E");
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 25%);
+      mask-image: linear-gradient(180deg, transparent 0%, #000 25%);
+    }
+    .orb-1 { background: rgba(199,163,107,.24); }
+    .orb-2 { background: rgba(45,90,61,.14); }
+
+    .contact-section { padding-top: 96px; }
+    .contact-eyebrow { color: var(--green); }
+    .contact-eyebrow::before { background: var(--green); }
+    .contact-hello { color: #a9792f; }
+    .contact-title { color: var(--ink); }
+    .contact-title em { color: var(--green); }
+    .contact-lead { color: var(--muted); }
+
+    .info-row { background: rgba(255,255,255,.72); border-color: rgba(45,90,61,.14); box-shadow: 0 6px 22px rgba(45,90,61,.06); }
+    .info-row:hover { background: #fff; border-color: rgba(199,163,107,.7); box-shadow: 0 12px 30px rgba(45,90,61,.12); }
+    .info-ic { background: rgba(45,90,61,.09); border-color: rgba(45,90,61,.22); }
+    .info-ic svg { stroke: var(--green); }
+    .info-lab { color: var(--green); }
+    .info-val, .info-val a { color: var(--ink); }
+    .info-val small { color: var(--muted); }
+    .copy-btn { border-color: rgba(45,90,61,.3); color: var(--green); }
+    .copy-btn:hover { background: var(--green); border-color: var(--green); color: #fff; }
+    .live-dot { background: #2fae62; }
+    .live-dot.off { background: #d99a3f; }
+
+    .social-label { color: var(--green); }
+    .social a { border-color: rgba(45,90,61,.25); background: rgba(255,255,255,.75); }
+    .social a svg { fill: var(--green); }
+    .social a:hover { background: var(--green); border-color: var(--green); }
+    .social a:hover svg { fill: #fff; }
+
+    .cf-card { background: #fff; box-shadow: 0 30px 70px rgba(45,90,61,.16), 0 0 0 1px rgba(45,90,61,.08); }
+    .cf-chip { background: var(--cream); }
+    .cf-field input, .cf-field textarea { background: var(--cream); }
+    .cf-field input:focus, .cf-field textarea:focus { background: #fff; }
+    .cf-done { background: #fff; }
+
+    .footer-top { border-image: linear-gradient(90deg, transparent, rgba(45,90,61,.28), transparent) 1; }
+    .footer-brand-name { color: #1f4a30; }
+    .footer-fine { color: var(--muted); }
+    .footer-social a { border-color: rgba(45,90,61,.25); background: rgba(255,255,255,.7); }
+    .footer-social a svg { fill: var(--green); }
+    .footer-social a:hover { background: var(--green); border-color: var(--green); }
+    .footer-social a:hover svg { fill: #fff; }
+    .footer-col-title { color: var(--green); }
+    .footer-links a, .footer-links span { color: #55645a; }
+    .footer-links a:hover { color: #1f4a30; }
+    .footer-links a:hover::before { color: #a9792f; }
+    .footer-word { background: linear-gradient(180deg, rgba(45,90,61,.17) 0%, rgba(45,90,61,.06) 60%, rgba(45,90,61,0) 100%); -webkit-background-clip: text; background-clip: text; }
+    .footer-bottom { border-top-color: rgba(45,90,61,.15); }
+    .footer-copy { color: rgba(26,20,16,.55); }
+    .to-top { border-color: rgba(45,90,61,.3); background: rgba(255,255,255,.75); }
+    .to-top svg { stroke: var(--green); }
+    .to-top:hover { background: var(--green); border-color: var(--green); }
+    .to-top:hover svg { stroke: #fff; }
+
+/* ── Hero: fresh green + interactive ── */
+    .hero-bg {
+      background-color: #dce9d6;
+      background-blend-mode: multiply;
+      background-position: calc(100% + var(--hx, 0px)) calc(50% + var(--hy, 0px));
+      background-size: 60% auto;
+    }
+    .hero-bg::before {
+      background:
+        linear-gradient(90deg,
+          rgba(247,251,244,.94) 0%,
+          rgba(233,242,227,.80) 30%,
+          rgba(214,230,208,.36) 52%,
+          rgba(214,230,208,0) 68%),
+        linear-gradient(180deg,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,0) 48%,
+          rgba(31,74,48,.20) 80%,
+          rgba(23,58,38,.36) 100%);
+    }
+    /* cursor spotlight */
+    .hero-spot {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(360px circle at var(--mx, 30%) var(--my, 40%), rgba(255,255,255,.42), transparent 62%);
+      opacity: 0; transition: opacity .4s ease;
+    }
+    .hero-bg:hover .hero-spot { opacity: 1; }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(55px); pointer-events: none; z-index: 0; }
+    .hero-orb-1 { width: 320px; height: 320px; top: 16%; left: -90px; background: rgba(45,90,61,.22); animation: drift 15s ease-in-out infinite alternate; }
+    .hero-orb-2 { width: 260px; height: 260px; bottom: 6%; left: 38%; background: rgba(199,163,107,.28); animation: drift 19s ease-in-out infinite alternate-reverse; }
+    .hero-orb-3 { width: 300px; height: 300px; top: 8%; right: 18%; background: rgba(94,180,125,.22); animation: drift 22s ease-in-out infinite alternate; }
+
+    /* entrance */
+    @keyframes heroRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+    .hero-rise { animation: heroRise .9s cubic-bezier(.2,.7,.2,1) both; }
+    .d1 { animation-delay: .05s; } .d2 { animation-delay: .18s; } .d3 { animation-delay: .32s; }
+    .d4 { animation-delay: .46s; } .d5 { animation-delay: .60s; }
+
+    .hero-green { position: relative; color: var(--green); font-style: italic; white-space: nowrap; }
+    .hero-green::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: .02em; height: .09em;
+      background: linear-gradient(90deg, var(--gold), rgba(199,163,107,0));
+      border-radius: 4px; transform-origin: left; transform: scaleX(0);
+      animation: underline 1s .9s cubic-bezier(.2,.7,.2,1) forwards;
+    }
+    @keyframes underline { to { transform: scaleX(1); } }
+
+    /* cycling tagline */
+    .hero-tag { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 26px; font-size: clamp(17px, 1.7vw, 21px); font-weight: 300; letter-spacing: .04em; color: #3b4a40; }
+    .hero-tag span { position: relative; transition: color .35s ease, transform .35s ease; }
+    .hero-tag span::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px;
+      background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform .45s ease;
+    }
+    .hero-tag span.on { color: var(--green); font-weight: 500; transform: translateY(-2px); }
+    .hero-tag span.on::after { transform: scaleX(1); }
+
+    /* category chips */
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+    .hero-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 16px; border-radius: 999px;
+      background: rgba(255,255,255,.7); backdrop-filter: blur(6px);
+      border: 1px solid rgba(45,90,61,.22);
+      font-size: 12.5px; font-weight: 600; letter-spacing: .04em; color: #1f4a30;
+      transition: all .25s ease;
+    }
+    .hero-chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); transition: transform .25s ease, background .25s ease; }
+    .hero-chip:hover { background: var(--green); color: #fff; border-color: var(--green); transform: translateY(-3px); box-shadow: 0 10px 22px rgba(45,90,61,.28); }
+    .hero-chip:hover i { background: #fff; transform: scale(1.5); }
+
+    /* buttons */
+    .hero-actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    .hero-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      background: var(--green); color: #fff;
+      padding: 17px 34px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      box-shadow: 0 16px 34px rgba(45,90,61,.38);
+      position: relative; overflow: hidden;
+      transition: transform .2s ease-out, background .25s ease, box-shadow .25s ease;
+    }
+    .hero-cta::after {
+      content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+      transform: skewX(-20deg); transition: left .6s ease;
+    }
+    .hero-cta:hover { background: #1f4a30; box-shadow: 0 20px 42px rgba(45,90,61,.46); }
+    .hero-cta:hover::after { left: 120%; }
+    .hero-cta svg { transition: transform .25s ease; }
+    .hero-cta:hover svg { transform: translateX(6px); }
+    .hero-link { position: relative; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #1f4a30; padding-bottom: 3px; }
+    .hero-link::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; background: #1f4a30; transform-origin: right; transition: transform .3s ease; }
+    .hero-link:hover::after { transform: scaleX(.35); transform-origin: left; }
+
+    /* scroll cue */
+    .hero-scroll {
+      position: absolute; z-index: 3; left: 50%; bottom: 20px; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      background: none; border: 0; cursor: pointer;
+      font-size: 10px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.9);
+    }
+    .hero-scroll-line { width: 1.5px; height: 34px; background: rgba(255,255,255,.35); position: relative; overflow: hidden; border-radius: 2px; }
+    .hero-scroll-line::after { content: ""; position: absolute; left: 0; top: -50%; width: 100%; height: 50%; background: #fff; animation: scrollcue 1.8s ease-in-out infinite; }
+    @keyframes scrollcue { to { top: 110%; } }
+    @media (max-width: 640px) { .hero-scroll { display: none; } .hero-bg { background-size: 85% auto; background-position: 100% 100%; } }
+
+/* ── Hero: flush under nav + lighter green ── */
+    .hero-bg { margin-top: 0 !important; padding-top: 44px !important; background-color: #edf5e8; }
+    .hero-bg::before {
+      background:
+        linear-gradient(90deg,
+          rgba(251,253,249,.95) 0%,
+          rgba(241,248,237,.82) 30%,
+          rgba(228,240,222,.34) 52%,
+          rgba(228,240,222,0) 68%),
+        linear-gradient(180deg,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,0) 55%,
+          rgba(45,90,61,.07) 82%,
+          rgba(45,90,61,.15) 100%);
+    }
+    .hero-badge { top: 28px; }
+    .hero-orb-1 { background: rgba(45,90,61,.13); }
+    .hero-orb-3 { background: rgba(94,180,125,.14); }
+    .hero-scroll { color: #2d5a3d; }
+    .hero-scroll-line { background: rgba(45,90,61,.22); }
+    .hero-scroll-line::after { background: #2d5a3d; }
+
+
+/* ── Hero: lookbook photo, text centred, bags on the sides ── */
+    .hero-photo-sec {
+      position: relative;
+      background: #e3dccd;
+      overflow: hidden;
+      border-radius: 0 0 0px 0px;
+      /* fill exactly the visible screen under the 72px navbar */
+      height: calc(100vh - 72px);
+      height: calc(100svh - 72px);
+      min-height: 500px;
+    }
+    /* screens that are taller/narrower than the photo: keep the whole photo in view instead of cropping the bags */
+    @media (min-width: 901px) and (max-aspect-ratio: 8/5) {
+      .hero-photo-sec { height: auto; aspect-ratio: 1365 / 768; min-height: 0; }
+    }
+    .hero-photo {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+    }
+    .hero-photo-sec .hero-badge { top: 22px; right: 28px; z-index: 3; }
+    .hero-copy-c {
+      position: absolute; z-index: 2;
+      left: 50%; top: 5%;
+      transform: translateX(-50%);
+      width: clamp(300px, 38%, 560px);
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .hero-copy-c h2 { font-size: clamp(48px, 6.2vw, 96px); line-height: 1; margin-bottom: -.12em; }
+    .hero-copy-c h1 { font-size: clamp(32px, 4.2vw, 64px); line-height: 1.1; margin-bottom: clamp(10px, 1.4vw, 22px); }
+    .hero-copy-c .hero-tag { justify-content: center; margin-bottom: clamp(12px, 1.4vw, 20px); font-size: clamp(14px, 1.3vw, 19px); }
+    .hero-copy-c .hero-chips { justify-content: center; gap: 8px; margin-bottom: clamp(12px, 1.6vw, 24px); }
+    .hero-copy-c .hero-chip { padding: 7px 13px; font-size: 11.5px; background: rgba(255,255,255,.72); }
+    .hero-copy-c .hero-actions { justify-content: center; gap: 18px; }
+    .hero-copy-c .hero-cta { padding: 14px 28px; font-size: 12px; }
+
+    /* tablet / phone: copy on top, photo below it */
+    @media (max-width: 900px) {
+      .hero-photo-sec { height: auto; aspect-ratio: auto; min-height: 0; border-radius: 0 0 28px 28px; padding-top: 40px; }
+      .hero-photo-sec .hero-badge { display: none; }
+      .hero-photo-sec { display: flex; flex-direction: column; }
+      .hero-copy-c { order: -1; position: static; transform: none; width: auto; padding: 0 20px 22px; }
+      .hero-copy-c h2 { font-size: clamp(54px, 15vw, 84px); }
+      .hero-copy-c h1 { font-size: clamp(34px, 9vw, 52px); }
+      .hero-photo { position: static; display: block; height: auto; min-height: 280px; object-fit: cover; object-position: center bottom; }
+    }
+
+    /* ── Overlays: cart drawer ── */
+    .drawer-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.44);
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s ease;
+      z-index: 1090;
+    }
+    .drawer-overlay.on { opacity: 1; pointer-events: auto; }
+
+    .drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(440px, 94vw); height: 100%;
+      background: #fff;
+      border-left: 1px solid var(--line);
+      box-shadow: -20px 0 60px rgba(0,0,0,.14);
+      transform: translateX(16px);
+      opacity: 0; pointer-events: none;
+      transition: transform .22s ease, opacity .22s ease;
+      display: flex; flex-direction: column;
+      z-index: 1100;
+    }
+    .drawer.on { transform: none; opacity: 1; pointer-events: auto; }
+    .drawer-head {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .drawer-title { font-family: var(--serif); font-size: 20px; font-weight: 600; }
+    .drawer-body { padding: 16px 20px; overflow: auto; flex: 1; }
+    .drawer-foot { padding: 16px 20px; border-top: 1px solid var(--line); }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px dashed rgba(26,20,16,.12);
+    }
+    .cart-thumb {
+      width: 76px; height: 76px;
+      border-radius: 12px;
+      background: center/cover no-repeat #f0e8dc;
+    }
+    .cart-name { font-weight: 700; font-size: 14px; }
+    .cart-meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .qty { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    .qty button {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(26,20,16,.15);
+      background: #fff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .qty span { min-width: 24px; text-align: center; font-weight: 700; font-size: 13px; }
+    .link-btn {
+      padding: 0; border: 0; background: transparent;
+      color: var(--muted); text-decoration: underline;
+      cursor: pointer; font-size: 12px;
+    }
+
+    .checkout-form {
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 14px;
+      background: rgba(250,248,243,.8);
+      border: 1px solid rgba(26,20,16,.10);
+    }
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 480px) { .row-2 { grid-template-columns: 1fr; } }
+    .field { display: grid; gap: 5px; margin-top: 10px; }
+    .field label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .field input, .field select {
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid rgba(26,20,16,.15);
+      background: #fff;
+      padding: 0 12px;
+      width: 100%;
+    }
+
+    /* ── Product modal ── */
+    .modal {
+      position: fixed; inset: 0;
+      display: grid; place-items: center;
+      background: rgba(0,0,0,.52);
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s ease;
+      z-index: 1200;
+    }
+    .modal.on { opacity: 1; pointer-events: auto; }
+    .modal-card {
+      width: min(920px, 94vw);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow: 0 40px 100px rgba(0,0,0,.24);
+    }
+    @media (max-width: 780px) { .modal-card { grid-template-columns: 1fr; } }
+    .modal-img { min-height: 320px; background: center/cover no-repeat #f0e8dc; }
+    .modal-body { padding: 32px; }
+    .modal-body h3 { font-family: var(--serif); font-size: 28px; font-weight: 600; margin-top: 8px; }
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(26,20,16,.14);
+      background: rgba(255,255,255,.95);
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* ── Reveal animation ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  
+/* ── Fashion Deals heading: bold, matches the other section headings ── */
+    .featured-header { gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+    .featured-label {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.6vw, 44px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.01em;
+      text-transform: uppercase;
+      color: var(--green);
+      position: relative;
+      padding-bottom: 14px;
+      margin: 0;
+    }
+    .featured-label::after {
+      content: ""; position: absolute; left: 0; bottom: 0;
+      width: 56px; height: 3px; background: var(--gold);
+    }
+    .featured-viewall { font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; }
+
+    /* bolder headings across the page */
+    .section-title { font-weight: 800; }
+    .about-title { font-weight: 800; }
+    .contact-title { font-weight: 800; }
+
+    /* modal never taller than the screen */
+    .modal-card { max-height: 92vh; max-height: 92dvh; overflow-y: auto; }
+
+    /* ── Mobile polish ── */
+    @media (max-width: 640px) {
+      .featured-header { flex-direction: column; align-items: center; text-align: center; margin-bottom: 6px; }
+      .featured-label { padding-bottom: 16px; font-size: clamp(26px, 8vw, 34px); }
+      .featured-label::after { left: 50%; transform: translateX(-50%); }
+      .section-title { font-size: clamp(26px, 7.4vw, 34px); }
+      .about-title { font-size: clamp(32px, 9vw, 40px); }
+      .contact-title { font-size: clamp(30px, 8.4vw, 38px); }
+      .statement p { font-size: clamp(22px, 6.4vw, 30px); }
+      .about-section, .section { padding: 56px 0; }
+      .contact-section { padding-top: 64px; }
+      .about-collage { height: 360px; }
+      .about-stats-card { left: 6px; min-width: 0; padding: 12px 14px; }
+      .about-ratings-card { left: 50%; }
+      .testi-card { padding: 22px; }
+      .footer-top { padding: 40px 0 32px; }
+      .footer-bottom { justify-content: center; text-align: center; }
+      .fp3d-hint { display: none; }
+      .fp3d-ctrl { gap: 28px; }
+      .hero-photo-sec .hero-cta, .hero-copy-c .hero-cta { padding: 14px 26px; }
+      .drawer { width: 100vw; }
+      .modal-body { padding: 22px; }
+      .modal-img { min-height: 240px; }
+      .modal-card { width: 94vw; }
+      .shop-shell { padding: 16px; }
+    }
+    @media (max-width: 480px) {
+      .info-row { padding: 12px; gap: 12px; }
+      .info-val { font-size: 13.5px; }
+      .info-val a { overflow-wrap: anywhere; }
+      .copy-btn { padding: 8px 10px; }
+      .copy-btn span { display: none; }
+      .cf-field input, .cf-field textarea, .field input, .field select { font-size: 16px; }
+      .cf-chip { padding: 9px 13px; }
+    }
+
+/* ── Mobile hero: photo as a full-bleed background, text on top, brighter ── */
+    :root { --cream: #fffdf9; }
+    body { background: #fffdf9; }
+    @media (max-width: 900px) {
+      .hero-photo-sec {
+        display: block;
+        position: relative;
+        height: calc(100vh - 72px);
+        height: calc(100svh - 72px);
+        min-height: 580px;
+        max-height: 650px;
+        padding-top: 0;
+        border-radius: 0 0 28px 28px;
+        background: #f4ebdc;
+      }
+      /* photo scaled so ~half of it (the bags) fills the width, pinned to the bottom, fading into the wall colour above */
+      .hero-photo {
+        position: absolute; top: auto; bottom: 0;
+        left: -40vw; width: 200vw; max-width: none;
+        height: auto; min-height: 0;
+        object-fit: fill;
+        filter: brightness(1.1) saturate(1.06);
+        -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 30%);
+        mask-image: linear-gradient(180deg, transparent 0, #000 30%);
+      }
+      .hero-photo-sec::after {
+        content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+        background: linear-gradient(180deg, rgba(255,252,246,.55) 0%, rgba(255,252,246,.18) 40%, rgba(255,252,246,0) 62%);
+      }
+      .hero-copy-c {
+        position: absolute; z-index: 2;
+        order: 0; transform: none;
+        top: 5%; left: 0; right: 0;
+        width: auto; padding: 0 20px;
+      }
+    }
+    @media (max-width: 380px) {
+      .hero-copy-c .hero-chip { padding: 6px 11px; font-size: 11px; }
+    }
+
+/* ── Spotlight product cards: make the text pop ── */
+    .fx-card { background: none; border-radius: 0; overflow: visible; box-shadow: none; }
+    .fx-info { position: relative; padding: 16px 4px 6px; }
+    .fx-info::before {
+      content: ""; position: absolute; left: 4px; top: 0;
+      width: 36px; height: 3px; border-radius: 3px;
+      background: var(--gold);
+      transition: width .35s ease;
+    }
+    .fx-card:hover .fx-info::before { width: 84px; }
+    .fx-cat {
+      margin: 6px 0 6px;
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: #a9792f;
+    }
+    .fx-name {
+      font-family: var(--serif);
+      font-size: clamp(15px, 1.35vw, 19px);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .fx-price {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      font-family: var(--sans);
+      font-size: clamp(17px, 1.5vw, 21px);
+      font-weight: 800;
+      letter-spacing: -.01em;
+      color: var(--green);
+    }
+    .fx-price::after { content: "USD"; font-size: 10px; font-weight: 700; letter-spacing: .16em; color: var(--muted); }
+
+    .fx-tag { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 8px 14px; box-shadow: 0 4px 14px rgba(26,20,16,.14); }
+    .fx-tag-gold { background: linear-gradient(135deg, #e8c987, #c7a36b); color: #2b1811; }
+    .fx-tag-new  { background: var(--green); color: #fff; }
+
+    .fx-add { background: var(--green); color: #fff; box-shadow: 0 8px 20px rgba(45,90,61,.35); }
+    .fx-add:hover { background: #1f4a30; color: #fff; }
+    .fx-add.added { background: var(--gold); color: #2b1811; }
+
+    @media (max-width: 520px) {
+      .fx-info { padding: 14px 2px 6px; }
+      .fx-info::before { left: 2px; }
+      .fx-name { font-size: 14px; }
+      .fx-price { font-size: 16px; }
+      .fx-price::after { display: none; }
+      .fx-cat { font-size: 9.5px; letter-spacing: .18em; }
+      .fx-tag { font-size: 10px; padding: 6px 10px; }
+    }
+
+/* ── Mobile hero: text on top, photo fitted to screen, fading seamlessly into section 2 ── */
+    @media (max-width: 900px) {
+      .hero-photo-sec {
+        display: flex; flex-direction: column;
+        height: auto; min-height: 0; max-height: none;
+        padding: 44px 0 0;
+        border-radius: 0;
+        overflow: hidden;
+        /* top tint -> same cream as the next section, so there is no visible edge */
+        background:
+          radial-gradient(70% 40% at 85% 6%, rgba(199,163,107,.20), transparent 70%),
+          linear-gradient(180deg, #fbf6ec 0%, #f6eedf 55%, #fffdf9 100%);
+      }
+      .hero-photo-sec::after { display: none; }
+      .hero-copy-c {
+        position: relative; z-index: 2; order: 0;
+        transform: none; top: auto; left: auto; right: auto;
+        width: auto; padding: 0 20px;
+      }
+      .hero-photo {
+        display: block;
+        position: absolute; z-index: 0;
+        /* lifted up so the bags sit at the same height as the headline/text */
+        top: 70px; left: -15vw; right: auto; bottom: auto;
+        width: 130vw; max-width: none;
+        height: auto; min-height: 0;
+        aspect-ratio: 4 / 3;
+        margin: 0;
+        object-fit: cover;
+        object-position: center 60%;
+        filter: brightness(1.06) saturate(1.05);
+        -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 18%, #000 66%, transparent 100%);
+        mask-image: linear-gradient(180deg, transparent 0, #000 18%, #000 66%, transparent 100%);
+      }
+      .hero-photo-sec { padding-bottom: 48px; }
+      /* extra soft veil at the very bottom, matching the next section's colour */
+      .hero-photo-sec::before {
+        content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+        height: 90px; z-index: 1; pointer-events: none;
+        background: linear-gradient(180deg, rgba(255,253,249,0), #fffdf9 92%);
+      }
+      /* the strip right after the hero continues the same colour, no seam */
+      .statement-intro { padding-top: 8px; background: #fffdf9; }
+    }
+</style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="nav" id="main-nav" aria-label="Main navigation">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="LIELENA Fashion home">
+        <div class="brand-logo">
+          <span class="brand-name">LIELENA<span class="brand-star">✦</span></span>
+          <span class="brand-sub">Fashion</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#top" class="active">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="shop.html#our-collection" class="btn-collection">Men</a>
+        <a href="shop.html#our-collection">Women</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button class="icon-btn" id="open-cart-btn" aria-label="Open shopping cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge" id="cart-badge">0</span>
+        </button>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" data-mobile-toggle>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-panel" data-mobile-panel>
+    <a href="#top">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="shop.html#our-collection">Men</a>
+    <a href="shop.html#our-collection">Women</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+    <section class="hero-photo-sec" id="hero" aria-label="LIELENA Ethiopian leather bags collection">
+
+    <img class="hero-photo" src="images/hero.jpg" alt="Leather handbags styled on marble plinths and a walnut table" decoding="async" />
+
+    <div class="hero-badge" aria-hidden="true">
+      <span class="badge-amharic">ኢትዮጵያ</span>
+      <span class="badge-line"></span>
+      <span class="badge-sub">Genuine Leather</span>
+    </div>
+
+    <div class="hero-copy-c text-center">
+      <h2 class="hero-rise d1 font-script text-gray-800">Discover</h2>
+
+      <h1 class="hero-rise d2 font-serif text-gray-900">
+        Pure <span class="hero-green">Ethiopian</span><br>Collections
+      </h1>
+
+      <p class="hero-rise d3 hero-tag" id="hero-tag"><span>Minimal.</span><span>Bold.</span><span>Enduring.</span></p>
+
+      <div class="hero-rise d4 hero-chips">
+        <a class="hero-chip" href="shop.html"><i></i>Backpacks</a>
+        <a class="hero-chip" href="shop.html"><i></i>Handbags</a>
+        <a class="hero-chip" href="shop.html"><i></i>Travel Bags</a>
+      </div>
+
+      <div class="hero-rise d5 hero-actions">
+        <a href="shop.html" class="hero-cta">
+          Shop Now
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#about" class="hero-link">Our story</a>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="statement statement-intro reveal">
+    <p>Make a Stylish Statement!</p>
+    
+  </div>
+
+  <!-- ═══ LOOKBOOK (section 2) ═══ -->
+  <section class="lookbook" id="lookbook" aria-label="LIELENA lookbook">
+    <div class="lookbook-grid">
+
+      <a class="lb-card reveal" href="shop.html" aria-label="Shop backpacks">
+        <img src="images/4a.png" alt="Woman carrying a tan and black leather backpack down a sunlit Addis Ababa street" loading="lazy" decoding="async" />
+        <div class="lb-cap"><strong>Backpacks</strong><span>Shop now →</span></div>
+      </a>
+
+      <a class="lb-card reveal" href="shop.html" aria-label="Shop handbags" style="transition-delay:.1s">
+        <img src="images/2.png" alt="Woman wearing a colour-block leather handbag in navy, yellow and red" loading="lazy" decoding="async" />
+        <div class="lb-cap"><strong>Handbags</strong><span>Shop now →</span></div>
+      </a>
+
+      <a class="lb-card is-cutout reveal" href="shop.html" aria-label="Shop travel bags" style="transition-delay:.2s">
+        <img src="images/3.png" alt="Man holding a brown leather duffle bag" loading="lazy" decoding="async" />
+        <div class="lb-cap"><strong>Travel Bags</strong><span>Shop now →</span></div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ═══ MARQUEE (moved up, above "Every stitch tells a story") ═══ -->
+  <section class="marquee" aria-hidden="true">
+    <div class="mq-row mq-top">
+      <div class="mq-track"><span>Fashion Deals </span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span></div>
+    </div>
+    <div class="mq-row mq-bottom">
+      <div class="mq-track"><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span><span>Fashion Deals</span></div>
+    </div>
+  </section>
+
+  <div class="statement reveal"><p>Every stitch tells a story.</p></div>
+
+  <!-- ═══ SPOTLIGHT (section 3) ═══ -->
+  <section class="spotlight" id="spotlight" aria-label="Crossbody bags spotlight">
+    <div class="spotlight-inner">
+
+      <!-- Left: photo + tagline -->
+      <div class="fx-hero reveal">
+        <img src="images/4.png" alt="Woman in a light blue striped shirt wearing a brown leather crossbody bag" loading="lazy" decoding="async" />
+        <div class="fx-hero-copy">
+          <h2>Made to go<br>wherever you do</h2>
+          <a class="fx-pill" href="shop.html">Shop Crossbody Bags</a>
+        </div>
+      </div>
+
+      <!-- Right: 2×2 products -->
+      <div class="fx-grid" id="fx-grid">
+
+        <article class="fx-card reveal">
+          <div class="fx-media">
+            <button class="fx-view" data-view="fx-tote" aria-label="View Addis Tote Bag"><img class="cover fx-main" src="images/6.png" alt="Addis Tote Bag in tan leather" loading="lazy" decoding="async" /><img class="cover fx-alt" src="images/6a.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" /></button>
+            <span class="fx-tag fx-tag-new">New</span>
+            <button class="fx-add" data-add="fx-tote">Add to cart</button>
+          </div>
+          <div class="fx-info">
+            <p class="fx-cat">Tote</p>
+            <p class="fx-name">Addis Full-Grain Leather Tote Bag</p>
+            <p class="fx-price">$189.00</p>
+          </div>
+        </article>
+
+        <article class="fx-card reveal" style="transition-delay:.08s">
+          <div class="fx-media">
+            <button class="fx-view" data-view="fx-weekender" aria-label="View Weekender Travel Bag"><img class="fx-main" src="images/7.png" alt="Weekender Travel Bag in black leather" loading="lazy" decoding="async" /><img class="fx-alt" src="images/7a.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /></button>
+            <span class="fx-tag fx-tag-gold">★ Best Seller</span>
+            <button class="fx-add" data-add="fx-weekender">Add to cart</button>
+          </div>
+          <div class="fx-info">
+            <p class="fx-cat">Travel</p>
+            <p class="fx-name">Full-Grain Leather Weekender Bag</p>
+            <p class="fx-price">$245.00</p>
+          </div>
+        </article>
+
+        <article class="fx-card reveal" style="transition-delay:.12s">
+          <div class="fx-media">
+            <button class="fx-view" data-view="fx-crossbody" aria-label="View Midnight Crossbody"><img class="cover fx-main" src="images/8.jpeg" alt="Midnight Crossbody in croc-embossed leather" loading="lazy" decoding="async" /><img class="cover fx-alt" src="images/8a.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async" /></button>
+            <button class="fx-add" data-add="fx-crossbody">Add to cart</button>
+          </div>
+          <div class="fx-info">
+            <p class="fx-cat">Crossbody</p>
+            <p class="fx-name">Midnight Croc-Embossed Crossbody</p>
+            <p class="fx-price">$145.00</p>
+          </div>
+        </article>
+
+        <article class="fx-card reveal" style="transition-delay:.16s">
+          <div class="fx-media">
+            <button class="fx-view" data-view="fx-handbag" aria-label="View Patent Handbag"><img class="cover fx-main" src="images/9.jpeg" alt="Patent leather handbag in black" loading="lazy" decoding="async" /><img class="cover fx-alt" src="images/9a.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async" /></button>
+            <button class="fx-add" data-add="fx-handbag">Add to cart</button>
+          </div>
+          <div class="fx-info">
+            <p class="fx-cat">Handbag</p>
+            <p class="fx-name">Hexagon Patent Leather Handbag</p>
+            <p class="fx-price">$149.00</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURED PRODUCTS ═══ -->
+  <section class="featured-section" id="featured">
+    <div class="wrap">
+
+      <!-- Header: "Featured Products" left, "View All →" right -->
+      <div class="featured-header reveal">
+        <h2 class="featured-label">Fashion Deals</h2>
+        <a class="featured-viewall" href="shop.html">View All →</a>
+      </div>
+
+      <!-- 3D rotating pop-up products -->
+      <div class="fp3d" id="fp3d" aria-roledescription="carousel" aria-label="Fashion Deals drag to rotate">
+        <div class="fp3d-stage" id="fp3d-stage">
+          <div class="fp3d-ring" id="fp3d-ring">
+          <article class="fp3d-item" data-i="0">
+            <div class="fp3d-pop">
+              <div class="fp3d-glow"></div>
+              <img class="fp3d-img" src="images/4.png" alt="LIELENA Leather Bag" draggable="false" loading="lazy" decoding="async" />
+            </div>
+            <div class="fp3d-info">
+              <p class="fp-name">LIELENA Leather Bag</p>
+              <p class="fp-price">$189.99</p>
+            </div>
+            <button class="fp3d-heart" type="button" aria-label="Add to wishlist" aria-pressed="false">♡</button>
+          </article>
+          <article class="fp3d-item" data-i="1">
+            <div class="fp3d-pop">
+              <div class="fp3d-glow"></div>
+              <img class="fp3d-img" src="images/6.png" alt="LIELENA Patent Bag" draggable="false" loading="lazy" decoding="async" />
+            </div>
+            <div class="fp3d-info">
+              <p class="fp-name">LIELENA Patent Bag</p>
+              <p class="fp-price">$149.99</p>
+            </div>
+            <button class="fp3d-heart on" type="button" aria-label="Remove from wishlist" aria-pressed="true">♥</button>
+          </article>
+          <article class="fp3d-item" data-i="2">
+            <div class="fp3d-pop">
+              <div class="fp3d-glow"></div>
+              <img class="fp3d-img" src="images/6a.jpg" alt="LIELENA Leather Bag" draggable="false" loading="lazy" decoding="async" />
+            </div>
+            <div class="fp3d-info">
+              <p class="fp-name">LIELENA Leather Bag</p>
+              <p class="fp-price">$179.99</p>
+            </div>
+            <button class="fp3d-heart" type="button" aria-label="Add to wishlist" aria-pressed="false">♡</button>
+          </article>
+          <article class="fp3d-item" data-i="3">
+            <div class="fp3d-pop">
+              <div class="fp3d-glow"></div>
+              <img class="fp3d-img" src="images/7.png" alt="LIELENA Leather Bag" draggable="false" loading="lazy" decoding="async" />
+            </div>
+            <div class="fp3d-info">
+              <p class="fp-name">LIELENA Leather Bag</p>
+              <p class="fp-price">$199.99</p>
+            </div>
+            <button class="fp3d-heart" type="button" aria-label="Add to wishlist" aria-pressed="false">♡</button>
+          </article>
+          <article class="fp3d-item" data-i="4">
+            <div class="fp3d-pop">
+              <div class="fp3d-glow"></div>
+              <img class="fp3d-img" src="images/7a.png" alt="Addis Full-Grain Tote" draggable="false" loading="lazy" decoding="async" />
+            </div>
+            <div class="fp3d-info">
+              <p class="fp-name">Addis Full-Grain Tote</p>
+              <p class="fp-price">$189.00</p>
+            </div>
+            <button class="fp3d-heart" type="button" aria-label="Add to wishlist" aria-pressed="false">♡</button>
+          </article>
+          <article class="fp3d-item" data-i="5">
+            <div class="fp3d-pop">
+              <div class="fp3d-glow"></div>
+              <img class="fp3d-img" src="images/8.jpeg" alt="Leather Weekender Bag" draggable="false" loading="lazy" decoding="async" />
+            </div>
+            <div class="fp3d-info">
+              <p class="fp-name">Leather Weekender Bag</p>
+              <p class="fp-price">$245.00</p>
+            </div>
+            <button class="fp3d-heart" type="button" aria-label="Add to wishlist" aria-pressed="false">♡</button>
+          </article>
+          <article class="fp3d-item" data-i="6">
+            <div class="fp3d-pop">
+              <div class="fp3d-glow"></div>
+              <img class="fp3d-img" src="images/8a.jpeg" alt="Travel Weekender" draggable="false" loading="lazy" decoding="async" />
+            </div>
+            <div class="fp3d-info">
+              <p class="fp-name">Travel Weekender</p>
+              <p class="fp-price">$239.00</p>
+            </div>
+            <button class="fp3d-heart" type="button" aria-label="Add to wishlist" aria-pressed="false">♡</button>
+          </article>
+          <article class="fp3d-item" data-i="7">
+            <div class="fp3d-pop">
+              <div class="fp3d-glow"></div>
+              <img class="fp3d-img" src="images/9.jpeg" alt="Midnight Crossbody" draggable="false" loading="lazy" decoding="async" />
+            </div>
+            <div class="fp3d-info">
+              <p class="fp-name">Midnight Crossbody</p>
+              <p class="fp-price">$145.00</p>
+            </div>
+            <button class="fp3d-heart" type="button" aria-label="Add to wishlist" aria-pressed="false">♡</button>
+          </article>
+          </div>
+        </div>
+        <div class="fp3d-ctrl">
+          <button type="button" class="fp3d-btn" id="fp3d-prev" aria-label="Previous product">←</button>
+          <span class="fp3d-hint">Drag to rotate</span>
+          <button type="button" class="fp3d-btn" id="fp3d-next" aria-label="Next product">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about-section" id="about">
+    <div class="wrap about-grid">
+
+      <!-- Left: image collage -->
+      <div class="about-collage reveal">
+        <div class="about-img-main"></div>
+        <div class="about-img-secondary"></div>
+
+        <!-- Floating stats card (top-left) -->
+        <div class="about-stats-card">
+          <div class="about-stats-number">
+            2,400+
+            <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div class="about-stats-label">Happy clients with 5-star ratings</div>
+          <div class="about-avatars">
+            <div class="about-avatar about-avatar-1"></div>
+            <div class="about-avatar about-avatar-2"></div>
+            <div class="about-avatar about-avatar-3"></div>
+            <div class="about-avatar about-avatar-4"></div>
+            <div class="about-avatar about-avatar-5"></div>
+          </div>
+        </div>
+
+        <!-- Floating ratings badge (bottom-center) -->
+        <div class="about-ratings-card">
+          <div class="about-ratings-label">Best Ratings</div>
+          <div class="about-ratings-emojis">★★★★★</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:3px;font-weight:600;">5.0 · 2,400+ reviews</div>
+        </div>
+      </div>
+
+      <!-- Right: copy -->
+      <div class="about-copy reveal" style="transition-delay:.12s;">
+        <div class="about-eyebrow">A Bit</div>
+        <h2 class="about-title">About Us</h2>
+        <p class="about-body">
+          Lielena Design started on the workshop floor cutting tables, waxed thread, and hides chosen one at a time for grain and character. Every bag is still built by hand, by people who know the difference between leather that looks good on day one and leather that gets better for a decade after. We keep our construction modern and our materials honest: full-grain hides, solid hardware, and stitching meant to endure.
+        </p>
+        <a class="about-explore-btn" href="shop.html">
+          Meet the craft
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="section" id="testimonials" style="background:#fff;">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <div>
+          <div class="section-eyebrow">Testimonials</div>
+          <h2 class="section-title">Loved for the leather. Kept for the <em style="font-style:italic;color:var(--br-600)">craft</em>.</h2>
+        </div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-body">"The leather quality is exceptional and the design feels genuinely premium. It looks even better after a few weeks of use."</p>
+          <div class="testi-who">Sofia A.</div>
+          <div class="testi-where">London, UK</div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:.08s;">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-body">"My briefcase has become my daily companion. The finish is immaculate and it holds its shape beautifully."</p>
+          <div class="testi-who">David M.</div>
+          <div class="testi-where">Toronto, CA</div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:.16s;">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-body">"Quiet luxury at its best. You can feel the craftsmanship in every stitch. Shipped quickly too arrived in perfect condition."</p>
+          <div class="testi-who">Amina M.</div>
+          <div class="testi-where">Dubai, UAE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT + FOOTER (one continuous green zone) ═══ -->
+  <div class="green-wrap">
+  <div class="green-zone">
+    <span class="orb orb-1" aria-hidden="true"></span>
+    <span class="orb orb-2" aria-hidden="true"></span>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section class="contact-section" id="contact">
+      <div class="wrap contact-inner">
+
+        <!-- Left: copy + info -->
+        <div class="reveal">
+          <div class="contact-eyebrow">Get In Touch</div>
+
+          <h2 class="contact-title">Let's build something <em>beautiful</em> together.</h2>
+          <p class="contact-lead">Wholesale, export partnerships, or a one-of-a-kind custom order tell us what you have in mind and the studio will reply personally.</p>
+
+          <div class="info-list">
+            <div class="info-row">
+              <div class="info-ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="info-txt">
+                <div class="info-lab">Our Studio</div>
+                <div class="info-val">Addis Ababa, Ethiopia</div>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div class="info-txt">
+                <div class="info-lab">Email</div>
+                <div class="info-val"><a href="mailto:talktous@lielena.design" id="mail-link">talktous@lielena.design</a></div>
+              </div>
+              <button type="button" class="copy-btn" id="copy-mail" aria-label="Copy email address">
+                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Copy</span>
+              </button>
+            </div>
+
+            <div class="info-row">
+              <div class="info-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="info-txt">
+                <div class="info-lab">Studio Hours</div>
+                <div class="info-val"><span class="live-dot" id="hours-dot"></span><span id="hours-status">Checking…</span>
+                  <small id="hours-time">Mon – Sat · 9:00 AM – 6:00 PM (EAT)</small></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="social">
+            <span class="social-label">Follow</span>
+            <a href="https://www.instagram.com/lielenadesign?igsh=MTN3aWEzOHJwZHFm" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"/><path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6A5.2 5.2 0 0 1 16.8 22H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm0 1.8A3.4 3.4 0 0 0 3.8 7.2v9.6a3.4 3.4 0 0 0 3.4 3.4h9.6a3.4 3.4 0 0 0 3.4-3.4V7.2a3.4 3.4 0 0 0-3.4-3.4H7.2Z"/></svg></a><a href="https://facebook.com/lielenadesign" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.6 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.6V5a22 22 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.1H8.1v3h2.5v8h3Z"/></svg></a><a href="https://tiktok.com/@lielena.design" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 2h3c.2 2 1.5 3.6 3.5 3.9V9c-1.4-.1-2.6-.5-3.5-1.2V15a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.3a3 3 0 1 0 2 2.9V2Z"/></svg></a><a href="https://pinterest.com/lielenadesign" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.5 19.4c-.1-.9-.2-2.1 0-3l1.3-5.6s-.3-.7-.3-1.6c0-1.5.9-2.6 2-2.6.9 0 1.4.7 1.4 1.6 0 1-.6 2.5-.9 3.9-.3 1.2.6 2.1 1.7 2.1 2 0 3.5-2.1 3.5-5.1 0-2.7-2-4.6-4.8-4.6-3.3 0-5.2 2.4-5.2 4.9 0 1 .4 2 1 2.6l-.3 1.3c0 .2-.2.3-.4.2-1.4-.6-2.3-2.7-2.3-4.4C6 7.6 8.6 5 12.9 5c3.9 0 7 2.8 7 6.5 0 3.9-2.5 7-5.9 7-1.1 0-2.2-.6-2.6-1.3l-.7 2.6c-.2.9-.8 2-1.2 2.7.9.3 1.8.4 2.8.4A10 10 0 0 0 12 2Z"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Right: interactive form -->
+        <div class="cf-card reveal" id="cf-card" style="transition-delay:.12s;">
+          <h3 class="cf-title">Send us a message</h3>
+          <p class="cf-sub">Pick a topic, write a few lines we usually reply within one working day.</p>
+
+          <form id="contact-form" novalidate>
+            <div class="cf-chips" role="radiogroup" aria-label="What is this about?">
+              <button type="button" class="cf-chip active" role="radio" aria-checked="true" data-topic="Custom Order" data-to="talktous@lielena.design" data-label="Describe your custom piece">Custom Order</button>
+              <button type="button" class="cf-chip" role="radio" aria-checked="false" data-topic="Wholesale" data-to="talktous@lielena.design" data-label="Quantities &amp; styles you need">Wholesale</button>
+              <button type="button" class="cf-chip" role="radio" aria-checked="false" data-topic="Export" data-to="ET@lielena.design" data-label="Destination country &amp; volumes">Export</button>
+              <button type="button" class="cf-chip" role="radio" aria-checked="false" data-topic="Just Hello" data-to="talktous@lielena.design" data-label="Your message">Just Hello</button>
+            </div>
+
+            <div class="cf-row">
+              <div class="cf-field" data-field="name">
+                <input type="text" id="cf-name" placeholder=" " autocomplete="name" maxlength="80" />
+                <label for="cf-name">Your name</label>
+              </div>
+              <div class="cf-field" data-field="email">
+                <input type="email" id="cf-email" placeholder=" " autocomplete="email" maxlength="120" />
+                <label for="cf-email">Email address</label>
+              </div>
+            </div>
+
+            <div class="cf-field" data-field="message">
+              <textarea id="cf-message" placeholder=" " maxlength="500"></textarea>
+              <label for="cf-message" id="cf-msg-label">Describe your custom piece</label>
+              <span class="cf-count" id="cf-count">0 / 500</span>
+            </div>
+
+            <button type="submit" class="cf-submit">
+              <span id="cf-submit-text">Send message</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+            </button>
+            <p class="cf-note">Opens your email app with everything filled in.</p>
+          </form>
+
+          <div class="cf-done" id="cf-done" aria-live="polite">
+            <svg class="cf-check" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28"/><path d="M18 31l8 8 16-17"/></svg>
+            <h3>Medase thank you!</h3>
+            <p id="cf-done-text">Your email app is opening with your message ready to send.</p>
+            <button type="button" id="cf-again">Write another</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+
+          <div>
+            <div class="footer-brand-name">LIELENA <span style="color:var(--gold);">✦</span> Fashion</div>
+            <p class="footer-fine">Premium handcrafted Ethiopian leather bags and accessories from Addis Ababa. Minimal. Bold. Enduring.</p>
+            <div class="footer-social">
+              <a href="https://www.instagram.com/lielenadesign?igsh=MTN3aWEzOHJwZHFm" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"/><path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6A5.2 5.2 0 0 1 16.8 22H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm0 1.8A3.4 3.4 0 0 0 3.8 7.2v9.6a3.4 3.4 0 0 0 3.4 3.4h9.6a3.4 3.4 0 0 0 3.4-3.4V7.2a3.4 3.4 0 0 0-3.4-3.4H7.2Z"/></svg></a><a href="https://facebook.com/lielenadesign" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.6 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.6V5a22 22 0 0 0-2.3-.1c-2.3 0-3.9 1.4-3.9 4v2.1H8.1v3h2.5v8h3Z"/></svg></a><a href="https://tiktok.com/@lielena.design" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 2h3c.2 2 1.5 3.6 3.5 3.9V9c-1.4-.1-2.6-.5-3.5-1.2V15a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.3a3 3 0 1 0 2 2.9V2Z"/></svg></a><a href="https://pinterest.com/lielenadesign" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.5 19.4c-.1-.9-.2-2.1 0-3l1.3-5.6s-.3-.7-.3-1.6c0-1.5.9-2.6 2-2.6.9 0 1.4.7 1.4 1.6 0 1-.6 2.5-.9 3.9-.3 1.2.6 2.1 1.7 2.1 2 0 3.5-2.1 3.5-5.1 0-2.7-2-4.6-4.8-4.6-3.3 0-5.2 2.4-5.2 4.9 0 1 .4 2 1 2.6l-.3 1.3c0 .2-.2.3-.4.2-1.4-.6-2.3-2.7-2.3-4.4C6 7.6 8.6 5 12.9 5c3.9 0 7 2.8 7 6.5 0 3.9-2.5 7-5.9 7-1.1 0-2.2-.6-2.6-1.3l-.7 2.6c-.2.9-.8 2-1.2 2.7.9.3 1.8.4 2.8.4A10 10 0 0 0 12 2Z"/></svg></a>
+            </div>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Navigate</div>
+            <nav class="footer-links">
+              <a href="#top">Home</a>
+              <a href="shop.html">Shop</a>
+              <a href="#featured">Featured</a>
+              <a href="#about">About Us</a>
+            </nav>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Help</div>
+            <nav class="footer-links">
+              <a href="#contact">Contact</a>
+              <a href="mailto:ET@lielena.design">Export Inquiry</a>
+              <a href="mailto:talktous@lielena.design">Custom Orders</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Use</a>
+            </nav>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Visit</div>
+            <div class="footer-links">
+              <span>Addis Ababa, Ethiopia</span>
+              <a href="mailto:talktous@lielena.design">talktous@lielena.design</a>
+              <a href="https://www.instagram.com/lielenadesign?igsh=MTN3aWEzOHJwZHFm" target="_blank" rel="noopener">@lielenadesign</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="footer-word" aria-hidden="true">LIELENA</div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2025 LIELENA Design. Handcrafted in Ethiopia.</p>
+          <button type="button" class="to-top" id="to-top" aria-label="Back to top">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ═══ PRODUCT MODAL ═══ -->
+  <div class="modal" id="product-modal" aria-hidden="true" role="dialog" aria-label="Product details">
+    <div class="modal-card">
+      <div class="modal-img" id="modal-img"></div>
+      <div class="modal-body">
+        <div class="section-eyebrow" id="modal-cat">Category</div>
+        <h3 id="modal-title">Product Name</h3>
+        <p style="margin-top:12px;font-size:14px;line-height:1.8;color:var(--muted);" id="modal-desc"></p>
+        <div style="margin-top:14px;font-weight:700;font-size:18px;" id="modal-price">$0.00</div>
+        <div style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn btn-dark" id="modal-add">Add to Cart</button>
+          <button class="btn btn-outline" id="modal-close-2">Close</button>
+        </div>
+      </div>
+    </div>
+    <button class="modal-close" id="modal-close" aria-label="Close product details">✕</button>
+  </div>
+
+  <!-- ═══ CART DRAWER ═══ -->
+  <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <aside class="drawer" id="cart-drawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <div class="drawer-title">Your Cart</div>
+      <button class="icon-btn" id="close-cart-btn" aria-label="Close cart">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body">
+      <p id="cart-empty" style="color:var(--muted);padding:12px 0;font-size:14px;">Your cart is empty.</p>
+      <div id="cart-items"></div>
+
+      <div class="checkout-form" id="checkout" style="margin-top:20px;">
+        <div class="section-eyebrow" style="margin-bottom:14px;">Checkout</div>
+        <div class="row-2">
+          <div class="field"><label>First name</label><input type="text" placeholder="Abebe"></div>
+          <div class="field"><label>Last name</label><input type="text" placeholder="Bekele"></div>
+        </div>
+        <div class="field"><label>Email</label><input type="email" id="co-email" placeholder="you@example.com"></div>
+        <div class="row-2">
+          <div class="field"><label>Country</label><select><option>Ethiopia</option><option>United States</option><option>United Kingdom</option><option>Canada</option><option>UAE</option></select></div>
+          <div class="field"><label>City</label><input type="text" placeholder="Addis Ababa"></div>
+        </div>
+        <div class="field"><label>Address</label><input type="text" placeholder="Street address"></div>
+        <p id="pay-note" style="display:none;margin-top:12px;font-size:13px;color:#c0392b;line-height:1.6;"></p>
+        <div style="margin-top:20px;">
+          <div style="display:flex;justify-content:space-between;font-weight:700;font-size:15px;margin-bottom:14px;">
+            <span>Total</span>
+            <span id="checkout-total">$0.00</span>
+          </div>
+          <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;" id="pay-btn">Place Order</button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer-foot">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;">
+        <div style="font-weight:700;font-size:15px;">Subtotal</div>
+        <div style="font-weight:700;font-size:15px;" id="cart-total">$0.00</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-outline" id="clear-cart-btn">Clear</button>
+        <a class="btn btn-dark" href="#checkout" id="go-checkout-btn" style="flex:1;justify-content:center;">Checkout</a>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    /* ── CART DATA ── */
+    const CART_KEY = 'lielena_cart_v2';
+
+    const PRODUCTS = [
+      { id: 'w-addis-tote', name: 'The Addis Tote', category: 'Women', categoryKey: 'women', price: 185, image: 'images/a.Webp', description: 'A structured tote designed for work, travel, and everyday refinement.' },
+      { id: 'w-crossbody',  name: 'Signature Crossbody', category: 'Women', categoryKey: 'women', price: 145, image: 'https://images.unsplash.com/photo-1514996937319-344454492b37?w=1400&q=80&auto=format&fit=crop', description: 'Hands-free elegance with a refined silhouette and premium hardware.' },
+      { id: 'w-shoulder',   name: 'Mini Shoulder Bag', category: 'Women', categoryKey: 'women', price: 125, image: 'images/b.webp', description: 'A compact statement piece for evenings and minimal carry.' },
+      { id: 'm-briefcase',  name: 'Executive Briefcase', category: 'Men', categoryKey: 'men', price: 260, image: 'https://images.unsplash.com/photo-1571940137120-16b15f69c8a5?w=1400&q=80&auto=format&fit=crop', description: 'A confident, structured carry built for modern business travel.' },
+      { id: 'm-wallet',     name: 'Classic Bifold Wallet', category: 'Men', categoryKey: 'men', price: 65, image: 'https://images.unsplash.com/photo-1618354691398-3f9f7d5f4d76?w=1400&q=80&auto=format&fit=crop', description: 'Slim in the pocket, generous in storage, finished with clean edges.' },
+      { id: 'm-belt',       name: 'Leather Belt', category: 'Men', categoryKey: 'men', price: 75, image: 'https://images.unsplash.com/photo-1593011958677-32c9b5e0f0a0?w=1400&q=80&auto=format&fit=crop', description: 'A timeless belt with a premium buckle and polished leather finish.' },
+      { id: 'a-cardholder', name: 'Slim Card Holder', category: 'Accessories', categoryKey: 'accessories', price: 45, image: 'https://images.unsplash.com/photo-1676276550349-580c49631496?w=1400&q=80&auto=format&fit=crop', description: 'Minimal carry with a refined profile and durable stitching.' },
+      { id: 'a-keyring',    name: 'Leather Keyring', category: 'Accessories', categoryKey: 'accessories', price: 25, image: 'https://images.unsplash.com/photo-1601924638867-3ec0e7c18af0?w=1400&q=80&auto=format&fit=crop', description: 'A small luxury with premium leather and sturdy hardware.' },
+      /* Spotlight section */
+      { id: 'fx-tote',      name: 'Addis Full-Grain Leather Tote Bag', category: 'Women', categoryKey: 'women', price: 189, image: 'images/6.jpeg', description: 'A sculpted full-grain leather tote with a soft, structured shape for work and everyday.' },
+      { id: 'fx-weekender', name: 'Full-Grain Leather Weekender Bag', category: 'Travel', categoryKey: 'men', price: 245, image: 'images/weekender-bag.jpg', description: 'Roomy carry-on weekender with front buckle pockets and zip-around storage.' },
+      { id: 'fx-crossbody', name: 'Midnight Croc-Embossed Crossbody', category: 'Women', categoryKey: 'women', price: 145, image: 'images/smart.png', description: 'A compact croc-embossed crossbody that carries the essentials hands-free.' },
+      { id: 'fx-handbag',   name: 'Hexagon Patent Leather Handbag', category: 'Women', categoryKey: 'women', price: 149, image: 'images/hexagon.png', description: 'A glossy patent-leather handbag with a bold hexagonal silhouette.' }
+    ];
+
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+    const money = v => '$' + Number(v || 0).toFixed(2);
+
+    function loadCart() {
+      try { const r = localStorage.getItem(CART_KEY); const c = r ? JSON.parse(r) : []; return Array.isArray(c) ? c : []; }
+      catch { return []; }
+    }
+    function saveCart(c) { localStorage.setItem(CART_KEY, JSON.stringify(c)); }
+    function cartCount(c) { return c.reduce((s, i) => s + (i.qty || 0), 0); }
+    function cartTotal(c) { return c.reduce((s, i) => s + i.qty * i.price, 0); }
+
+    function renderProducts(key = 'all') {
+      const grid = $('#product-grid');
+      if (!grid) return; // home page has no product grid (shop page only)
+      const list = key === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.categoryKey === key);
+      $('#result-count').textContent = list.length;
+      grid.innerHTML = list.map((p, i) => `
+        <article class="shop-card reveal" style="transition-delay:${Math.min(i * .05, .25)}s">
+          <div class="sc-img-wrap">
+            <div class="sc-img" style="background-image:url('${p.image}')" role="img" aria-label="${p.name}"></div>
+          </div>
+          <div class="sc-body">
+            <div class="sc-meta"><span>${p.category}</span><span style="font-weight:700">${money(p.price)}</span></div>
+            <div class="sc-name">${p.name}</div>
+            <p class="sc-desc">${p.description}</p>
+            <div class="sc-foot">
+              <button class="btn btn-outline" data-view="${p.id}">View Details</button>
+              <button class="btn btn-dark" data-add="${p.id}">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+      setupReveal($$('.reveal', grid));
+    }
+
+    function addToCart(id) {
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+      const c = loadCart();
+      const ex = c.find(i => i.id === id);
+      if (ex) ex.qty++; else c.push({ id: p.id, name: p.name, category: p.category, price: p.price, image: p.image, qty: 1 });
+      saveCart(c); renderCart(); openCart(true);
+    }
+
+    function updateQty(id, delta) {
+      const c = loadCart();
+      const item = c.find(i => i.id === id);
+      if (item) { item.qty += delta; saveCart(c.filter(i => i.qty > 0)); renderCart(); }
+    }
+
+    function removeItem(id) { saveCart(loadCart().filter(i => i.id !== id)); renderCart(); }
+    function clearCart() { saveCart([]); renderCart(); }
+
+    function renderCart() {
+      const c = loadCart();
+      const count = cartCount(c), total = cartTotal(c);
+      const badge = $('#cart-badge');
+      badge.textContent = count;
+      badge.style.display = count > 0 ? 'grid' : 'none';
+      $('#cart-total').textContent = money(total);
+      $('#checkout-total').textContent = money(total);
+      const empty = $('#cart-empty'), items = $('#cart-items');
+      empty.style.display = c.length ? 'none' : 'block';
+      items.innerHTML = c.map(item => `
+        <div class="cart-item">
+          <div class="cart-thumb" style="background-image:url('${item.image}')"></div>
+          <div>
+            <div class="cart-name">${item.name}</div>
+            <div class="cart-meta">${item.category} · ${money(item.price)}</div>
+            <div class="qty">
+              <button data-qty="${item.id}" data-delta="-1">−</button>
+              <span>${item.qty}</span>
+              <button data-qty="${item.id}" data-delta="1">+</button>
+              <button class="link-btn" data-remove="${item.id}" style="margin-left:auto">Remove</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openCart(open) {
+      $('#cart-drawer').classList.toggle('on', open);
+      $('#drawer-overlay').classList.toggle('on', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    function openModal(id) {
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+      $('#modal-img').style.backgroundImage = `url('${p.image}')`;
+      $('#modal-cat').textContent = p.category;
+      $('#modal-title').textContent = p.name;
+      $('#modal-desc').textContent = p.description;
+      $('#modal-price').textContent = money(p.price);
+      $('#modal-add').onclick = () => addToCart(p.id);
+      $('#product-modal').classList.add('on');
+      $('#product-modal').setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      $('#product-modal').classList.remove('on');
+      $('#product-modal').setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function setupReveal(nodes = $$('.reveal')) {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+      }, { threshold: 0.1 });
+      nodes.forEach(n => obs.observe(n));
+    }
+
+    function setupMobileMenu() {
+      const toggle = $('[data-mobile-toggle]');
+      const panel = $('[data-mobile-panel]');
+      if (!toggle || !panel) return;
+      const setOpen = (open) => {
+        panel.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+      };
+      toggle.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
+      panel.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+    }
+
+    function setupSmoothScroll() {
+      const OFFSET = 82;
+      $$('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+          const href = link.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector(href);
+          if (!target) return;
+          e.preventDefault();
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - OFFSET, behavior: 'smooth' });
+        });
+      });
+    }
+
+    function setupFilters() {
+      $$('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          const key = tab.dataset.filter || 'all';
+          $$('.tab').forEach(t => { const a = t === tab; t.classList.toggle('active', a); t.setAttribute('aria-selected', String(a)); });
+          renderProducts(key);
+        });
+      });
+    }
+
+    function setupNavScroll() {
+      const nav = $('#main-nav');
+      window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+    }
+
+    function setupWishlist() {
+      document.addEventListener('click', e => {
+        const btn = e.target.closest('.pc-wish');
+        if (btn) { btn.classList.toggle('wished'); e.stopPropagation(); }
+      });
+    }
+
+    function setupEvents() {
+      $('#open-cart-btn').addEventListener('click', () => openCart(true));
+      $('#close-cart-btn').addEventListener('click', () => openCart(false));
+      $('#drawer-overlay').addEventListener('click', () => openCart(false));
+      $('#go-checkout-btn').addEventListener('click', () => openCart(false));
+      $('#clear-cart-btn').addEventListener('click', clearCart);
+
+      /* Spotlight grid: "Add to cart" pill + click card to open details */
+      const fx = $('#fx-grid');
+      if (fx) {
+        const handle = e => {
+          const add = e.target.closest('[data-add]');
+          if (add) {
+            e.preventDefault(); e.stopPropagation();
+            addToCart(add.dataset.add);
+            add.classList.add('added'); add.textContent = 'Added ✓';
+            setTimeout(() => { add.classList.remove('added'); add.textContent = 'Add to cart'; }, 1600);
+            return;
+          }
+          const view = e.target.closest('[data-view]');
+          if (view) openModal(view.dataset.view);
+        };
+        fx.addEventListener('click', handle);
+      }
+
+      const pg = $('#product-grid');
+      if (pg) pg.addEventListener('click', e => {
+        const add = e.target.closest('[data-add]');
+        const view = e.target.closest('[data-view]');
+        if (add) addToCart(add.dataset.add);
+        if (view) openModal(view.dataset.view);
+      });
+
+      $('#cart-items').addEventListener('click', e => {
+        const qty = e.target.closest('[data-qty]');
+        const rem = e.target.closest('[data-remove]');
+        if (qty) updateQty(qty.dataset.qty, Number(qty.dataset.delta || 0));
+        if (rem) removeItem(rem.dataset.remove);
+      });
+
+      $('#modal-close').addEventListener('click', closeModal);
+      $('#modal-close-2').addEventListener('click', closeModal);
+      $('#product-modal').addEventListener('click', e => { if (e.target.id === 'product-modal') closeModal(); });
+
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); openCart(false); } });
+
+      $('#pay-btn').addEventListener('click', () => {
+        const cart = loadCart();
+        const note = $('#pay-note');
+        if (!cart.length) { note.style.display = 'block'; note.textContent = 'Your cart is empty. Add products before placing an order.'; return; }
+        const email = $('#co-email').value.trim();
+        if (!email.includes('@')) { note.style.display = 'block'; note.textContent = 'Please enter a valid email address to continue.'; $('#co-email').focus(); return; }
+        const ref = 'LD-' + Math.floor(100000 + Math.random() * 900000);
+        note.style.display = 'block';
+        note.style.color = 'var(--green)';
+        note.textContent = `Order placed! ${money(cartTotal(cart))} will be confirmed at ${email}. Reference: ${ref}. (Demo)`;
+        clearCart();
+      });
+    }
+
+    /* ── Contact: topics, validation, mailto, copy, live hours, glow ── */
+    function setupContact() {
+      const form = $('#contact-form');
+      if (!form) return;
+
+      const toast = $('#toast');
+      let toastT;
+      const showToast = msg => {
+        toast.textContent = msg; toast.classList.add('on');
+        clearTimeout(toastT); toastT = setTimeout(() => toast.classList.remove('on'), 2200);
+      };
+
+      /* Topic chips */
+      let topic = $('.cf-chip.active');
+      $$('.cf-chip').forEach(chip => chip.addEventListener('click', () => {
+        $$('.cf-chip').forEach(c => { const on = c === chip; c.classList.toggle('active', on); c.setAttribute('aria-checked', String(on)); });
+        topic = chip;
+        $('#cf-msg-label').innerHTML = chip.dataset.label;
+      }));
+
+      /* Character counter */
+      const msg = $('#cf-message'), count = $('#cf-count');
+      msg.addEventListener('input', () => {
+        count.textContent = msg.value.length + ' / 500';
+        count.classList.toggle('max', msg.value.length >= 480);
+      });
+
+      /* Clear error state while typing */
+      $$('.cf-field input, .cf-field textarea').forEach(el =>
+        el.addEventListener('input', () => el.closest('.cf-field').classList.remove('invalid')));
+
+      /* Submit → validate → open mail app + success state */
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = $('#cf-name').value.trim();
+        const email = $('#cf-email').value.trim();
+        const body = msg.value.trim();
+        const bad = [];
+        if (name.length < 2) bad.push('name');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) bad.push('email');
+        if (body.length < 10) bad.push('message');
+        $$('.cf-field').forEach(f => {
+          f.classList.remove('invalid');
+          if (bad.includes(f.dataset.field)) { void f.offsetWidth; f.classList.add('invalid'); }
+        });
+        if (bad.length) { $('#cf-' + bad[0]).focus(); showToast('Please complete the highlighted fields'); return; }
+
+        const to = topic.dataset.to;
+        const subject = `[${topic.dataset.topic}] Message from ${name}`;
+        const text = `${body}\n\n— ${name}\n${email}`;
+        $('#cf-done-text').textContent = `Your email app is opening with your ${topic.dataset.topic.toLowerCase()} message to ${to} ready to send.`;
+        $('#cf-done').classList.add('on');
+        window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+      });
+
+      $('#cf-again').addEventListener('click', () => {
+        $('#cf-done').classList.remove('on');
+        form.reset(); count.textContent = '0 / 500';
+      });
+
+      /* Copy email */
+      $('#copy-mail').addEventListener('click', async () => {
+        const addr = 'talktous@lielena.design';
+        try { await navigator.clipboard.writeText(addr); }
+        catch {
+          const t = document.createElement('textarea'); t.value = addr; document.body.appendChild(t); t.select();
+          try { document.execCommand('copy'); } catch {} t.remove();
+        }
+        const label = $('#copy-mail span'); label.textContent = 'Copied ✓';
+        showToast('Email address copied');
+        setTimeout(() => label.textContent = 'Copy', 1800);
+      });
+
+      /* Live studio hours (Addis Ababa, Mon–Sat 9–18) */
+      function updateHours() {
+        const parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Africa/Addis_Ababa', weekday: 'short', hour: 'numeric', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+        const get = t => (parts.find(p => p.type === t) || {}).value;
+        const wd = get('weekday'), h = parseInt(get('hour'), 10), m = get('minute');
+        const open = wd !== 'Sun' && h >= 9 && h < 18;
+        const h12 = ((h + 11) % 12) + 1, ap = h >= 12 ? 'PM' : 'AM';
+        $('#hours-dot').classList.toggle('off', !open);
+        $('#hours-status').textContent = open ? 'Open now' : 'Closed right now';
+        $('#hours-time').textContent = `Addis Ababa ${h12}:${m} ${ap} · Mon – Sat, 9 AM – 6 PM`;
+      }
+      updateHours(); setInterval(updateHours, 30000);
+
+      /* Pointer glow on the form card */
+      const card = $('#cf-card');
+      card.addEventListener('pointermove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+
+      /* Back to top */
+      $('#to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
+    /* ── Hero: spotlight, parallax, magnetic CTA, cycling words ── */
+    function setupHero() {
+      const hero = $('#hero');
+      if (!hero) return;
+      let tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+      const tick = () => {
+        cx += (tx - cx) * .08; cy += (ty - cy) * .08;
+        hero.style.setProperty('--hx', cx.toFixed(2) + 'px');
+        hero.style.setProperty('--hy', cy.toFixed(2) + 'px');
+        raf = (Math.abs(tx - cx) > .05 || Math.abs(ty - cy) > .05) ? requestAnimationFrame(tick) : null;
+      };
+      hero.addEventListener('pointermove', e => {
+        const r = hero.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+        hero.style.setProperty('--mx', x + 'px'); hero.style.setProperty('--my', y + 'px');
+        tx = (x / r.width - .5) * -14; ty = (y / r.height - .5) * -8;
+        if (!raf) raf = requestAnimationFrame(tick);
+      });
+      hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(tick); });
+
+      $$('.hero-cta').forEach(btn => {
+        btn.addEventListener('pointermove', e => {
+          const r = btn.getBoundingClientRect();
+          btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .22}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`;
+        });
+        btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+      });
+
+      const words = $$('#hero-tag span'); let w = 0;
+      const cycle = () => { words.forEach((el, k) => el.classList.toggle('on', k === w)); w = (w + 1) % words.length; };
+      cycle(); setInterval(cycle, 1500);
+
+      const cue = $('#hero-scroll');
+      if (cue) cue.addEventListener('click', () => {
+        const t = $('#lookbook'); if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      setupReveal();
+      setupMobileMenu();
+      setupSmoothScroll();
+      setupFilters();
+      setupNavScroll();
+      setupWishlist();
+      renderProducts('all');
+      renderCart();
+      setupEvents();
+      setupContact();
+      setupHero();
+    });
+  </script>
+
+  <script>
+  /* Featured products: full-width rectangular coverflow (straight row, centre pops, loops forever) */
+  (function () {
+    const stage = document.getElementById('fp3d-stage'), ring = document.getElementById('fp3d-ring');
+    if (!stage || !ring) return;
+    const items = Array.from(ring.children), n = items.length;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let off = 0, vel = 0, sp = 220, total = sp * n, dragging = false, lastX = 0, hover = false, resumeAt = 0, target = null, last = performance.now();
+
+    function layout() {
+      const vw = stage.clientWidth, w = vw < 640 ? 170 : 230;
+      stage.style.setProperty('--w', w + 'px');
+      sp = Math.max(w * 0.9, (vw + 2 * w) / n);      // close together, but always fills the screen
+      total = sp * n;
+    }
+    function paint() {
+      items.forEach((el, i) => {
+        let x = (((i * sp + off + total / 2) % total) + total) % total - total / 2;   // wrap into [-total/2, total/2)
+        const d = Math.abs(x) / sp, pop = Math.max(0, 1 - d);
+        const tilt = Math.max(-30, Math.min(30, -x / sp * 12));
+        const sc = 0.82 + 0.45 * pop;
+        el.style.transform = 'translateX(' + x.toFixed(1) + 'px) translateZ(' + (140 * pop).toFixed(1) + 'px) rotateY(' + tilt.toFixed(1) + 'deg) scale(' + sc.toFixed(3) + ')';
+        el.style.opacity = (0.75 + 0.25 * pop).toFixed(3);
+        el.style.zIndex = Math.round(pop * 100);
+        el.style.pointerEvents = d < 0.6 ? 'auto' : 'none';
+        el.classList.toggle('is-center', d < 0.5);
+      });
+    }
+    function tick(t) {
+      const dt = Math.min((t - last) / 1000, 0.05); last = t;
+      if (target !== null) {
+        const d = target - off; off += d * Math.min(dt * 3.5, 1);
+        if (Math.abs(d) < 0.3) { off = target; target = null; resumeAt = t + 1500; }
+      } else if (!dragging) {
+        off += vel * dt; vel *= Math.pow(0.04, dt);
+        if (!reduce && !hover && t > resumeAt && Math.abs(vel) < 20) off -= 20 * dt;   // self-moves left
+      }
+      paint(); requestAnimationFrame(tick);
+    }
+    stage.addEventListener('pointerdown', e => {
+      if (e.target.closest('.fp3d-heart')) return;
+      dragging = true; lastX = e.clientX; vel = 0; target = null;
+      stage.classList.add('drag'); stage.setPointerCapture(e.pointerId);
+    });
+    stage.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      const dx = e.clientX - lastX; lastX = e.clientX; off += dx; vel = dx * 60;
+    });
+    const end = () => { if (!dragging) return; dragging = false; stage.classList.remove('drag'); resumeAt = performance.now() + 1500; };
+    stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
+    ring.addEventListener('mouseover', e => { if (e.target.closest('.fp3d-item')) hover = true; });
+    ring.addEventListener('mouseout', e => { if (!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest('.fp3d-item')) hover = false; });
+    const snap = dir => { const base = target !== null ? target : Math.round(off / sp) * sp; target = base + dir * sp; vel = 0; };
+    document.getElementById('fp3d-prev').addEventListener('click', () => snap(1));
+    document.getElementById('fp3d-next').addEventListener('click', () => snap(-1));
+    stage.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') snap(1); if (e.key === 'ArrowRight') snap(-1); });
+    ring.querySelectorAll('.fp3d-heart').forEach(b => b.addEventListener('click', e => {
+      e.stopPropagation(); const on = b.classList.toggle('on');
+      b.textContent = on ? '♥' : '♡'; b.setAttribute('aria-pressed', on); b.setAttribute('aria-label', (on ? 'Remove from' : 'Add to') + ' wishlist');
+    }));
+    stage.tabIndex = 0;
+    window.addEventListener('resize', layout);
+    layout(); requestAnimationFrame(tick);
+  })();
+  </script>
+</body>
+</html>
